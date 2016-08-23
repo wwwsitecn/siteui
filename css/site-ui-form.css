@@ -1,0 +1,17 @@
+.zcRadio{
+	display: inline-block;
+	cursor: pointer;
+}
+.zcRadio input,.zcRadio span{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.zcCheckbox{
+	display: inline-block;
+	cursor: pointer;
+}
+.zcCheckbox input,.zcCheckbox span{
+	display: inline-block;
+	vertical-align: middle;
+}
