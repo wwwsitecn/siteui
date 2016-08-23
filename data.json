@@ -1,0 +1,12 @@
+{
+	"list": [
+      {
+        "url": "html/site-ui-btn.html"
+      },
+      {
+        "url": "html/site-ui-form.html"
+      },{
+      	"url": "html/site-ui-dialog.html"
+      }
+    ]
+}
