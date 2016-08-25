@@ -1,6 +1,12 @@
 {
 	"list": [
       {
+        "url": "html/zcColor.html"
+      },
+      {
+        "url": "html/zcLink.html"
+      },
+      {
         "url": "html/zcBtn.html"
       },
       {

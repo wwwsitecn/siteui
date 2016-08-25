@@ -1,8 +1,8 @@
 /* zcInput */
 .zcInput{
     width: 200px;
-    line-height: 28px;
-    line-height: 28px;
+    line-height: 36px;
+    line-height: 36px;
     padding:0 10px;
     border: 1px solid #ccc;
     color: #aaa;
@@ -20,8 +20,8 @@
 .zcRadio{
     display: inline-block;
     vertical-align: middle;
-    height: 28px;
-    line-height: 28px;
+    height: 36px;
+    line-height: 36px;
     margin-right: 20px;
     cursor: pointer;
 }
@@ -43,8 +43,8 @@
 .zcCheckbox{
     display: inline-block;
     vertical-align: middle;
-    height: 28px;
-    line-height: 28px;
+    height: 36px;
+    line-height: 36px;
     margin-right: 20px;
     cursor: pointer;
 }
@@ -307,7 +307,7 @@ input.error,
     text-align: right;
 }
 .zcFormTable td.n span{
-    line-height: 30px;
+    line-height: 38px;
     display: inline-block;
 }
 .zcFormTable td.v{

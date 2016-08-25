@@ -110,11 +110,10 @@ a {
     vertical-align:baseline;
     background:transparent;
     text-decoration:none;
-    color: #00a1f1;
+    color: #666666;
 }
 a:hover {
     color: #00a1f1;
-    text-decoration: underline;
 }
 a:focus {
     outline-style:none;

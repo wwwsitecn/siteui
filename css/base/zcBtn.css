@@ -1,7 +1,7 @@
 .zcBtn{
-    height: 28px;
-    line-height: 28px;
-    padding: 0 10px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 29px;
     border-style:solid;
     border-width:1px;
     text-align: center;
@@ -10,9 +10,19 @@
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     border-radius:3px;
+    color: #00a1f1;
+}
+.zcBtn .icon{
+    margin-right: 8px;
 }
 .zcBtn:hover{
+    background: #00a1f1;
+    color: #fff;
     text-decoration:none;
+}
+.zcBtn:hover .text,
+.zcBtn:hover .icon{
+    color: #fff;
 }
 /* 蓝色 : #00a1f1 */
 .btnBlue{
@@ -23,7 +33,11 @@
 .btnBlue .text{
     color: #fff;
 }
-.btnBlue:hover,
+.btnBlue:hover{
+    background: #18b4ff;
+    border-color:#18b4ff;
+    color: #fff;
+}
 .btnBlue:hover .text{
     color: #fff;
 }
@@ -36,6 +50,14 @@
 .btnWhite .text{
     color:#333;
 }
+.btnWhite:hover{
+    color:#00a1f1;
+    background:#f7f7f7;
+}
+.btnWhite:hover .text,
+.btnWhite:hover .icon{
+    color:#00a1f1;
+}
 /* 黄色 : #ffcd0a */
 .btnYellow{
     background: #ffcd0a;
@@ -43,6 +65,29 @@
     color:#fff;
 }
 .btnYellow .text{
+    color:#fff;
+}
+.btnYellow:hover{
+    color:#fff;
+    background:#ffcd0a;
+}
+.btnYellow:hover .text{
+    color:#fff;
+}
+/* 橙色 : #f4901e */
+.btnOrange{
+    background: #f4901e;
+    border-color:#f4901e;
+    color:#fff;
+}
+.btnOrange .text{
+    color:#fff;
+}
+.btnOrange:hover{
+    color:#fff;
+    background:#f4901e;
+}
+.btnOrange:hover .text{
     color:#fff;
 }
 /* 绿色 : #89c33e */
@@ -54,20 +99,25 @@
 .btnGreen .text{
     color:#fff;
 }
-.btnYellow:hover,
 .btnGreen:hover{
+    color:#fff;
+    background:#89c33e;
+}
+.btnGreen:hover .text{
     color:#fff;
 }
 /* disabled : 禁用 */
 .zcBtn.disabled,
 .zcBtn.disabled .text,
-.popBtn.disabled{
+.zcBtn.disabled .icon{
     background: #aaa!important;
     border-color: #aaa!important;
     color:#fff!important;
     cursor: not-allowed!important;
 }
-.zcBtn.disabled:hover{
+.zcBtn.disabled:hover,
+.zcBtn.disabled:hover .text,
+.zcBtn.disabled:hover .icon{
     color: #fff!important;
 }
 /* zcLoading : 等待状态 */
@@ -76,8 +126,8 @@
 }
 .zcBtn.zcLoading{
     cursor: not-allowed!important;
-    background: #8bccec!important;
-    border-color: #8bccec!important;
+    background: #18b4ff!important;
+    border-color: #18b4ff!important;
 }
 .zcBtn.zcLoading .icon,
 .zcBtn.zcLoading .text{
@@ -88,6 +138,19 @@
     margin-top: -2px;
 }
 .zcBtn.zcLoading:hover{
-    background: #8bccec!important;
-    border-color: #8bccec!important;
+    background: #18b4ff!important;
+    border-color: #18b4ff!important;
+}
+
+/* 大按钮 */
+.zcBtn.btnBg{
+    height: 42px;
+    line-height: 42px;
+    border-width: 2px;
+    border-style: solid;
+    padding: 0 63px;
+}
+.zcBtn.btnBg,
+.zcBtn.btnBg .text{
+    font-size: 16px;
 }
