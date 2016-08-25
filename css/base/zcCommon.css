@@ -1,0 +1,182 @@
+.root{
+    width: 100%;
+    height: 100%;
+    /*min-width:1000px;
+    */margin: 0 auto;
+}
+.contC{
+    width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+    position: relative;
+}
+/* display : none */
+.hidden{
+    display: none!important;
+}
+/* overflow:hidden */
+.overflowHidden{
+    overflow: hidden!important;
+}
+.showed{
+    display: inline-block!important;
+}
+/* 清除浮动 */
+.clear {
+    display: block;
+    #zoom:1;
+    /*ie6-ie7*/;
+}
+.clear:after {
+    content: '';
+    overflow: hidden;
+    width: 100%;
+    height: 0px;
+    font-size: 0px;
+    margin: 0px;
+    padding: 0px;
+    display: block;
+    clear: both;
+}
+/* 字体颜色 - 红色 */
+.textRed{
+    color: #f00;
+}
+/* 圆角 - 3px */
+.borderRadius3px{
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius:3px;
+}
+/* 圆角 - 100% */
+.borderRadius100per{
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    border-radius:100%;
+}
+/* 背景平铺 : cover */
+.backgroundSizeCover{
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+/* box-sizing : border-box */
+.borderBox{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/* disabled : 禁用 */
+.disabled{
+    cursor: default!important;
+}
+
+/* required : 必填 */
+.required{color: #e50011;padding-right: 2px;}
+/* on - tab current */
+.on{cursor: default!important;}
+/* superslide : next/prev btn stop style */
+.nextStop,
+.prevStop{display: none!important;}
+/* capsLockTip : 大小写标签  */
+.capsLockTip{
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    background: #d9d9d9;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    display: none;
+/*    right: 5px;
+    top: 50%;
+    margin: -11px 0 0 0;*/
+}
+/* zcTips : 提示信息 */
+.zcTips{
+    width: 72px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 100%;
+    margin:-18px 0 0 12px;
+    font-size: 12px;
+    color: #666;
+}
+.zcTips .arrow{
+    display: block;
+    width: 6px;
+    height: 12px;
+    position: absolute;
+    top: 50%;
+    left: -6px;
+    margin: -6px 0 0 0;
+    overflow: hidden;
+}
+.zcTips .arrow b,
+.zcTips .arrow i{
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 12px;
+    font-family: serif;
+    line-height: 14px;
+}
+
+.zcTips .arrow b{
+    color: #ccc;
+}
+.zcTips .arrow i{
+    color: #fff;
+    left: 2px;
+}
+/* ui-tooltip : 模拟ui-tooltip */
+.hoverShow{position: relative;}
+.hoverShow .ui-tooltip{display: none;min-width: 180px;}
+.hoverShow .ui-tooltip a{color: #00a1f1;}
+/* css 动画 */
+@-webkit-keyframes bounceIn2 {
+    0% {
+    opacity:0;
+    -webkit-transform:scale(.3);
+    -ms-transform:scale(.3);
+    -o-transform:scale(.3);
+    transform:scale(.3)
+}
+100% {
+    opacity:1;
+    -webkit-transform:scale(1);
+    -ms-transform:scale(1);
+    -o-transform:scale(1);
+    transform:scale(1)
+}
+}
+@keyframes bounceIn2 {
+    0% {
+    opacity:0;
+    -webkit-transform:scale(.3);
+    -ms-transform:scale(.3);
+    -o-transform:scale(.3);
+    transform:scale(.3)
+}
+100% {
+    opacity:1;
+    -webkit-transform:scale(1);
+    -ms-transform:scale(1);
+    -o-transform:scale(1);
+    transform:scale(1)
+}
+}

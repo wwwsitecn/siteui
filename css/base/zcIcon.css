@@ -1,0 +1,288 @@
+@charset "utf-8";
+/**
+* @name         :icon.css
+* @date         :2015-11-05
+* @updateTime   :()
+* @author       :dengyongliang@xinnet.com
+* @version      :1.0
+* @type         :整站icon定义
+* @explain      :
+* @relating     :
+* @dependent    :
+**/
+.ing{background: url('../images/loading3.gif') no-repeat;width: 15px;height: 14px;}
+.icon{
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	vertical-align: middle;
+	background: url('../images/icon.png') no-repeat;
+}
+.icon-bank{
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	vertical-align: middle;
+	background: url('../images/logo_bank.png') no-repeat;
+}
+.medal{
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	vertical-align: middle;
+	background: url('../images/medal.png') no-repeat;	
+}
+.levelTitle{
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	vertical-align: middle;
+	background: url('../images/levelTitle.png') no-repeat;	
+}
+.browser{
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	vertical-align: middle;
+	background: url('../images/browser.png') no-repeat;	
+}
+/* icon */
+.icon-star-02 { background-position: -0px -0px; width: 115px; height: 18px; }
+.icon-star-03 { background-position: -0px -18px; width: 115px; height: 18px; }
+.icon-footer-flag { background-position: -0px -36px; width: 98px; height: 98px; }
+.icon-footer-flag2 { background-position: -0px -134px; width: 98px; height: 98px; }
+.icon-mycommission { background-position: -0px -232px; width: 90px; height: 73px; }
+.icon-demand-1 { background-position: -0px -305px; width: 71px; height: 71px; }
+.icon-demand-2 { background-position: -0px -376px; width: 71px; height: 71px; }
+.icon-demand-3 { background-position: -0px -447px; width: 71px; height: 71px; }
+.icon-passed { background-position: -0px -518px; width: 70px; height: 70px; }
+.icon-other-1 { background-position: -0px -588px; width: 62px; height: 37px; }
+.icon-arrow-r { background-position: -0px -625px; width: 58px; height: 44px; }
+.icon-demand-fun-1 { background-position: -58px -625px; width: 56px; height: 56px; }
+.icon-demand-fun-10 { background-position: -0px -669px; width: 56px; height: 56px; }
+.icon-demand-fun-11 { background-position: -56px -681px; width: 56px; height: 56px; }
+.icon-demand-fun-12 { background-position: -0px -725px; width: 56px; height: 56px; }
+.icon-demand-fun-2 { background-position: -56px -737px; width: 56px; height: 56px; }
+.icon-demand-fun-3 { background-position: -0px -781px; width: 56px; height: 56px; }
+.icon-demand-fun-4 { background-position: -56px -793px; width: 56px; height: 56px; }
+.icon-demand-fun-5 { background-position: -0px -837px; width: 56px; height: 56px; }
+.icon-demand-fun-6 { background-position: -56px -849px; width: 56px; height: 56px; }
+.icon-demand-fun-7 { background-position: -0px -893px; width: 56px; height: 56px; }
+.icon-demand-fun-8 { background-position: -56px -905px; width: 56px; height: 56px; }
+.icon-demand-fun-9 { background-position: -0px -949px; width: 56px; height: 56px; }
+.icon-flag-urgent { background-position: -56px -961px; width: 53px; height: 53px; }
+.icon-face-1-red { background-position: -0px -1005px; width: 50px; height: 50px; }
+.icon-face-2-red { background-position: -50px -1014px; width: 50px; height: 50px; }
+.icon-face-3-red { background-position: -0px -1055px; width: 50px; height: 50px; }
+.icon-face-4-red { background-position: -50px -1064px; width: 50px; height: 50px; }
+.icon-face-5-red { background-position: -0px -1105px; width: 50px; height: 50px; }
+.icon-file-ai { background-position: -71px -305px; width: 44px; height: 44px; }
+.icon-file-jpg { background-position: -71px -349px; width: 44px; height: 44px; }
+.icon-file-pdf { background-position: -71px -393px; width: 44px; height: 44px; }
+.icon-file-ppt { background-position: -71px -437px; width: 44px; height: 44px; }
+.icon-file-psd { background-position: -71px -481px; width: 44px; height: 44px; }
+.icon-file-root { background-position: -70px -525px; width: 44px; height: 44px; }
+.icon-file-zip { background-position: -70px -569px; width: 44px; height: 44px; }
+.icon-add-02 { background-position: -50px -1114px; width: 41px; height: 41px; }
+.icon-arrow-l-01 { background-position: -0px -1155px; width: 40px; height: 70px; }
+.icon-arrow-r-01 { background-position: -40px -1155px; width: 40px; height: 70px; }
+.icon-add-03 { background-position: -0px -1225px; width: 36px; height: 36px; }
+.icon-add-04 { background-position: -36px -1225px; width: 36px; height: 36px; }
+.icon-eye-close { background-position: -72px -1225px; width: 36px; height: 36px; }
+.icon-eye-open { background-position: -0px -1261px; width: 36px; height: 36px; }
+.icon-ok { background-position: -80px -1155px; width: 35px; height: 23px; }
+.icon-star-blue-3 { background-position: -62px -613px; width: 35px; height: 10px; }
+.icon-preview { background-position: -80px -1178px; width: 34px; height: 25px; }
+.icon-ok-04 { background-position: -36px -1261px; width: 32px; height: 32px; }
+.icon-ok-05 { background-position: -68px -1261px; width: 32px; height: 32px; }
+.icon-tel { background-position: -36px -1293px; width: 32px; height: 32px; }
+.icon-arrow-b-03 { background-position: -68px -1293px; width: 30px; height: 30px; }
+.icon-arrow-t-03 { background-position: -0px -1297px; width: 30px; height: 30px; }
+.icon-photo-bg { background-position: -68px -1323px; width: 30px; height: 30px; }
+.icon-flag { background-position: -30px -1325px; width: 29px; height: 34px; }
+.icon-horn-02 { background-position: -0px -1327px; width: 28px; height: 28px; }
+.icon-input { background-position: -59px -1353px; width: 28px; height: 28px; }
+.icon-speaker { background-position: -87px -1353px; width: 28px; height: 28px; }
+.icon-refresh { background-position: -0px -1355px; width: 27px; height: 26px; }
+.icon-add-06 { background-position: -27px -1359px; width: 26px; height: 26px; }
+.icon-add-07 { background-position: -0px -1381px; width: 26px; height: 26px; }
+.icon-add { background-position: -53px -1381px; width: 26px; height: 26px; }
+.icon-base-01 { background-position: -79px -1381px; width: 26px; height: 26px; }
+.icon-base-02 { background-position: -26px -1385px; width: 26px; height: 26px; }
+.icon-base-03 { background-position: -0px -1407px; width: 26px; height: 26px; }
+.icon-level-01 { background-position: -52px -1407px; width: 26px; height: 26px; }
+.icon-level-02 { background-position: -78px -1407px; width: 26px; height: 26px; }
+.icon-level-03 { background-position: -26px -1411px; width: 26px; height: 26px; }
+.icon-msg-01 { background-position: -0px -1433px; width: 26px; height: 26px; }
+.icon-msg-02 { background-position: -52px -1433px; width: 26px; height: 26px; }
+.icon-msg-03 { background-position: -78px -1433px; width: 26px; height: 26px; }
+.icon-question-01 { background-position: -26px -1437px; width: 26px; height: 26px; }
+.icon-question-02 { background-position: -0px -1459px; width: 26px; height: 26px; }
+.icon-question-03 { background-position: -52px -1459px; width: 26px; height: 26px; }
+.icon-question-04 { background-position: -78px -1459px; width: 26px; height: 26px; }
+.icon-question-05 { background-position: -26px -1463px; width: 26px; height: 26px; }
+.icon-quota-01 { background-position: -0px -1485px; width: 26px; height: 26px; }
+.icon-quota-02 { background-position: -52px -1485px; width: 26px; height: 26px; }
+.icon-quota-03 { background-position: -78px -1485px; width: 26px; height: 26px; }
+.icon-realname-01 { background-position: -26px -1489px; width: 26px; height: 26px; }
+.icon-realname-02 { background-position: -0px -1511px; width: 26px; height: 26px; }
+.icon-realname-03 { background-position: -52px -1511px; width: 26px; height: 26px; }
+.icon-safe-01 { background-position: -78px -1511px; width: 26px; height: 26px; }
+.icon-safe-02 { background-position: -26px -1515px; width: 26px; height: 26px; }
+.icon-safe-03 { background-position: -0px -1537px; width: 26px; height: 26px; }
+.icon-skill-01 { background-position: -52px -1537px; width: 26px; height: 26px; }
+.icon-skill-02 { background-position: -78px -1537px; width: 26px; height: 26px; }
+.icon-skill-03 { background-position: -26px -1541px; width: 26px; height: 26px; }
+.icon-umbrella-01 { background-position: -0px -1563px; width: 26px; height: 26px; }
+.icon-umbrella-02 { background-position: -52px -1563px; width: 26px; height: 26px; }
+.icon-money-02 { background-position: -90px -232px; width: 24px; height: 24px; }
+.icon-money { background-position: -90px -256px; width: 24px; height: 24px; }
+.icon-msg-h { background-position: -90px -280px; width: 24px; height: 24px; }
+.icon-msg { background-position: -91px -1114px; width: 24px; height: 24px; }
+.icon-problem-h { background-position: -78px -1563px; width: 24px; height: 24px; }
+.icon-problem { background-position: -26px -1567px; width: 24px; height: 24px; }
+.icon-no { background-position: -78px -1587px; width: 23px; height: 24px; }
+.icon-upload-03 { background-position: -80px -1203px; width: 22px; height: 19px; }
+.icon-star-black-2 { background-position: -91px -1138px; width: 21px; height: 10px; }
+.icon-arrow-l-02 { background-position: -0px -1589px; width: 20px; height: 42px; }
+.icon-arrow-r-02 { background-position: -50px -1589px; width: 20px; height: 42px; }
+.icon-clock-02 { background-position: -20px -1591px; width: 20px; height: 19px; }
+.icon-mail { background-position: -20px -1610px; width: 20px; height: 14px; }
+.icon-ok-08 { background-position: -70px -1611px; width: 20px; height: 12px; }
+.icon-talk { background-position: -90px -1611px; width: 20px; height: 18px; }
+.icon-certified-01-2 { background-position: -70px -1623px; width: 19px; height: 19px; }
+.icon-certified-01 { background-position: -20px -1624px; width: 19px; height: 19px; }
+.icon-certified-02-2 { background-position: -89px -1629px; width: 19px; height: 19px; }
+.icon-certified-02-3 { background-position: -0px -1631px; width: 19px; height: 19px; }
+.icon-certified-02 { background-position: -39px -1631px; width: 19px; height: 19px; }
+.icon-certified-03-2 { background-position: -58px -1642px; width: 19px; height: 19px; }
+.icon-certified-03 { background-position: -19px -1643px; width: 19px; height: 19px; }
+.icon-certified-04-2 { background-position: -77px -1648px; width: 19px; height: 19px; }
+.icon-certified-04 { background-position: -96px -1648px; width: 19px; height: 19px; }
+.icon-arrow-r-05 { background-position: -0px -1650px; width: 18px; height: 18px; }
+.icon-arrow-t-04 { background-position: -97px -613px; width: 18px; height: 10px; }
+.icon-dot-2 { background-position: -38px -1650px; width: 18px; height: 18px; }
+.icon-dot { background-position: -56px -1661px; width: 18px; height: 18px; }
+.icon-horn { background-position: -18px -1662px; width: 18px; height: 17px; }
+.icon-icon-ok-10 { background-position: -74px -1667px; width: 18px; height: 18px; }
+.icon-ling-02 { background-position: -92px -1667px; width: 18px; height: 18px; }
+.icon-ling { background-position: -0px -1668px; width: 18px; height: 18px; }
+.icon-list { background-position: -36px -1668px; width: 18px; height: 18px; }
+.icon-msg-04 { background-position: -18px -1679px; width: 18px; height: 15px; }
+.icon-ok-02 { background-position: -54px -1679px; width: 18px; height: 12px; }
+.icon-ok-03 { background-position: -72px -1685px; width: 18px; height: 18px; }
+.icon-qqgroup { background-position: -90px -1685px; width: 18px; height: 19px; }
+.icon-security-01 { background-position: -0px -1686px; width: 18px; height: 18px; }
+.icon-security-02 { background-position: -36px -1686px; width: 18px; height: 18px; }
+.icon-security-03 { background-position: -54px -1691px; width: 18px; height: 18px; }
+.icon-security-04 { background-position: -18px -1694px; width: 18px; height: 18px; }
+.icon-toprank { background-position: -72px -1703px; width: 18px; height: 16px; }
+.icon-unit-ch { background-position: -98px -36px; width: 17px; height: 17px; }
+.icon-user { background-position: -98px -53px; width: 17px; height: 17px; }
+.icon-files { background-position: -98px -70px; width: 16px; height: 19px; }
+.icon-v { background-position: -98px -89px; width: 16px; height: 15px; }
+.icon-warnning-03 { background-position: -98px -104px; width: 16px; height: 16px; }
+.icon-warnning-04 { background-position: -98px -120px; width: 16px; height: 16px; }
+.icon-warnning { background-position: -98px -136px; width: 16px; height: 16px; }
+.icon-file { background-position: -98px -152px; width: 15px; height: 15px; }
+.icon-no-03 { background-position: -98px -167px; width: 15px; height: 14px; }
+.icon-arrow-t-02 { background-position: -98px -181px; width: 14px; height: 8px; }
+.icon-calendar { background-position: -98px -189px; width: 14px; height: 14px; }
+.icon-edit-02 { background-position: -98px -203px; width: 14px; height: 14px; }
+.icon-edit-03 { background-position: -98px -217px; width: 14px; height: 14px; }
+.icon-edit { background-position: -100px -1014px; width: 14px; height: 14px; }
+.icon-no-02 { background-position: -100px -1028px; width: 14px; height: 14px; }
+.icon-warnning-02 { background-position: -100px -1042px; width: 14px; height: 14px; }
+.icon-warnning-05 { background-position: -100px -1056px; width: 14px; height: 14px; }
+.icon-checkbox { background-position: -100px -1070px; width: 13px; height: 13px; }
+.icon-clock-03 { background-position: -100px -1083px; width: 13px; height: 12px; }
+.icon-clock { background-position: -100px -1095px; width: 13px; height: 12px; }
+.icon-rocket { background-position: -100px -1261px; width: 13px; height: 22px; }
+.icon-upload-02 { background-position: -102px -1203px; width: 13px; height: 14px; }
+.icon-upload { background-position: -100px -1283px; width: 13px; height: 14px; }
+.icon-del-gray { background-position: -98px -1297px; width: 12px; height: 12px; }
+.icon-del-red { background-position: -98px -1309px; width: 12px; height: 12px; }
+.icon-del { background-position: -98px -1321px; width: 12px; height: 12px; }
+.icon-star { background-position: -98px -1333px; width: 12px; height: 13px; }
+.icon-add-05 { background-position: -105px -1381px; width: 10px; height: 10px; }
+.icon-arrow-b-01 { background-position: -102px -1217px; width: 10px; height: 7px; }
+.icon-arrow-b-05 { background-position: -105px -1391px; width: 10px; height: 7px; }
+.icon-arrow-t-01 { background-position: -105px -1398px; width: 10px; height: 7px; }
+.icon-arrow-t-05 { background-position: -105px -1405px; width: 10px; height: 7px; }
+.icon-dot-01 { background-position: -104px -1412px; width: 10px; height: 10px; }
+.icon-dot-02 { background-position: -104px -1422px; width: 10px; height: 10px; }
+.icon-ok-06 { background-position: -104px -1432px; width: 10px; height: 10px; }
+.icon-ok-07 { background-position: -104px -1442px; width: 10px; height: 10px; }
+.icon-ok-09 { background-position: -104px -1452px; width: 10px; height: 10px; }
+.icon-star-gray-1 { background-position: -104px -1462px; width: 10px; height: 10px; }
+.icon-arrow-l-03 { background-position: -62px -588px; width: 7px; height: 10px; }
+.icon-arrow-l-04 { background-position: -62px -598px; width: 7px; height: 10px; }
+.icon-arrow-l-05 { background-position: -108px -1225px; width: 7px; height: 10px; }
+.icon-arrow-r-03 { background-position: -108px -1235px; width: 7px; height: 10px; }
+.icon-arrow-r-04 { background-position: -108px -1245px; width: 7px; height: 10px; }
+/* icon-bank */
+.icon-abc { background-position: -0px -0px; width: 116px; height: 24px; }
+.icon-bcm { background-position: -116px -0px; width: 116px; height: 24px; }
+.icon-boc { background-position: -232px -0px; width: 116px; height: 24px; }
+.icon-ccb { background-position: -0px -24px; width: 116px; height: 24px; }
+.icon-cib { background-position: -116px -24px; width: 116px; height: 24px; }
+.icon-citic { background-position: -232px -24px; width: 116px; height: 24px; }
+.icon-cmb { background-position: -0px -48px; width: 116px; height: 24px; }
+.icon-cmbc { background-position: -116px -48px; width: 116px; height: 24px; }
+.icon-icbc { background-position: -232px -48px; width: 116px; height: 24px; }
+.icon-spdb { background-position: -0px -72px; width: 116px; height: 24px; }
+/* medal */
+.medal-automobile-true { background-position: -0px -0px; width: 80px; height: 80px; }
+.medal-automobile { background-position: -80px -0px; width: 80px; height: 80px; }
+.medal-chemical-true { background-position: -160px -0px; width: 80px; height: 80px; }
+.medal-chemical { background-position: -240px -0px; width: 80px; height: 80px; }
+.medal-education-true { background-position: -320px -0px; width: 80px; height: 80px; }
+.medal-education { background-position: -400px -0px; width: 80px; height: 80px; }
+.medal-entertainment-true { background-position: -0px -80px; width: 80px; height: 80px; }
+.medal-entertainment { background-position: -80px -80px; width: 80px; height: 80px; }
+.medal-estate-true { background-position: -160px -80px; width: 80px; height: 80px; }
+.medal-estate { background-position: -240px -80px; width: 80px; height: 80px; }
+.medal-financial-true { background-position: -320px -80px; width: 80px; height: 80px; }
+.medal-financial { background-position: -400px -80px; width: 80px; height: 80px; }
+.medal-government-true { background-position: -0px -160px; width: 80px; height: 80px; }
+.medal-government { background-position: -80px -160px; width: 80px; height: 80px; }
+.medal-healthing-true { background-position: -160px -160px; width: 80px; height: 80px; }
+.medal-healthing { background-position: -240px -160px; width: 80px; height: 80px; }
+.medal-hospital-true { background-position: -320px -160px; width: 80px; height: 80px; }
+.medal-hospital { background-position: -400px -160px; width: 80px; height: 80px; }
+.medal-housing-true { background-position: -0px -240px; width: 80px; height: 80px; }
+.medal-housing { background-position: -80px -240px; width: 80px; height: 80px; }
+.medal-it-true { background-position: -160px -240px; width: 80px; height: 80px; }
+.medal-it { background-position: -240px -240px; width: 80px; height: 80px; }
+.medal-lifeservice-true { background-position: -320px -240px; width: 80px; height: 80px; }
+.medal-lifeservice { background-position: -400px -240px; width: 80px; height: 80px; }
+.medal-manufacture-true { background-position: -0px -320px; width: 80px; height: 80px; }
+.medal-manufacture { background-position: -80px -320px; width: 80px; height: 80px; }
+.medal-media-true { background-position: -160px -320px; width: 80px; height: 80px; }
+.medal-media { background-position: -240px -320px; width: 80px; height: 80px; }
+.medal-other-true { background-position: -320px -320px; width: 80px; height: 80px; }
+.medal-other { background-position: -400px -320px; width: 80px; height: 80px; }
+.medal-personalcare-true { background-position: -0px -400px; width: 80px; height: 80px; }
+.medal-personalcare { background-position: -80px -400px; width: 80px; height: 80px; }
+.medal-selling-true { background-position: -160px -400px; width: 80px; height: 80px; }
+.medal-selling { background-position: -240px -400px; width: 80px; height: 80px; }
+.medal-smallcommodities-true { background-position: -320px -400px; width: 80px; height: 80px; }
+.medal-smallcommodities { background-position: -400px -400px; width: 80px; height: 80px; }
+.medal-transport-true { background-position: -0px -480px; width: 80px; height: 80px; }
+.medal-transport { background-position: -80px -480px; width: 80px; height: 80px; }
+.medal-traveling-true { background-position: -160px -480px; width: 80px; height: 80px; }
+.medal-traveling { background-position: -240px -480px; width: 80px; height: 80px; }
+
+/* title 称号 */
+.title-01 { background-position: -0px -0px; width: 24px; height: 24px; }
+.title-02 { background-position: -24px -0px; width: 24px; height: 24px; }
+.title-03 { background-position: -0px -24px; width: 24px; height: 24px; }
+.title-04 { background-position: -24px -24px; width: 24px; height: 24px; }
+.title-05 { background-position: -0px -48px; width: 24px; height: 24px; }
+.title-06 { background-position: -24px -48px; width: 24px; height: 24px; }
+
+/* browser */
+.chrome { background-position: 0px 0px; width: 75px; height: 75px; }
+.ie { background-position: 0px -75px; width: 75px; height: 75px; }
+.firefox { background-position: 0px -150px; width: 75px; height: 75px; }
+.safari { background-position: 0px -225px; width: 75px; height: 75px; }

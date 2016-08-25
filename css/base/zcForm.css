@@ -1,0 +1,346 @@
+/* zcInput */
+.zcInput{
+    width: 200px;
+    line-height: 28px;
+    line-height: 28px;
+    padding:0 10px;
+    border: 1px solid #ccc;
+    color: #aaa;
+}
+/* zcTextarea */
+.zcTextarea{
+    width: 200px;
+    line-height: 16px;
+    padding:10px;
+    border: 1px solid #ccc;
+    color: #aaa;
+}
+
+/* zcRadio : radio  */
+.zcRadio{
+    display: inline-block;
+    vertical-align: middle;
+    height: 28px;
+    line-height: 28px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.zcRadio input,
+.zcRadio .text,
+.zcRadio a{
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.zcRadio .text{
+    margin-left: 5px;
+}
+.zcRadio.disabled input,
+.zcRadio.disabled .text{
+    cursor: default!important;
+}
+/* zcCheckbox : 模拟checkbox */
+.zcCheckbox{
+    display: inline-block;
+    vertical-align: middle;
+    height: 28px;
+    line-height: 28px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.zcCheckbox input,
+.zcCheckbox .text,
+.zcCheckbox a{
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.zcCheckbox .text{
+    margin-left: 5px;
+}
+.zcCheckbox.disabled input,
+.zcCheckbox.disabled .text{
+    cursor: default!important;
+}
+/* zcPayPassword : 6位密码输入框 */
+.zcPayPassword{
+    display: inline-block;
+    width: 222px;
+    height: 36px;
+    border:1px solid #cccccc;
+    font-size:0px;
+    border-right: none;
+}
+.zcPayPassword .pw{
+    float: left;
+    width: 6px;
+    height: 36px;
+    padding: 0 15px;
+    line-height: 36px;
+    text-align: center;
+    font-size: 14px;
+    border:1px solid #cccccc;
+    margin: -1px 0 0 -1px;
+    position: relative;
+    cursor:text;
+    overflow: hidden;
+}
+.zcPayPassword .pw:focus{
+    border-color: #00a1f1;
+    position: relative;
+    z-index: 1;
+}
+/*.zcPayPassword .true:after{
+    content:"";
+    display: block;
+    width: 8px;
+    height: 8px;
+    background: #000;
+    border-radius:50%;
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-top:-4px;
+    margin-left:-4px;
+    z-index: 1;
+}*/
+/* zcPassword6s :  */
+.zcPassword6s{
+    width: 229px!important;
+    display:inline-block!important;
+    height: auto!important;
+    padding: 0px!important;
+    border: none;
+    overflow: hidden;
+}
+.zcPassword6s .pw{
+    float: left;
+    width: 37px;
+    height:36px;
+    line-height: 36px;
+    font-size: 18px;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+    position: relative;
+    margin-left: -1px;
+}
+.zcPassword6s .pw01{
+    margin-left: 0px;
+}
+.zcPassword6s .pw:focus{
+    position: relative;
+    z-index: 1;
+}
+.zcPassword6s.error{
+    border-color:#ff7373 !important;
+}
+/* select : 模拟select */
+.zcSelect{
+    min-width: 100px;
+    height: 34px;
+    position: relative;
+    display: inline-block;
+    background-color: #fff;
+    border:1px solid #ccc;
+    vertical-align: middle;
+}
+.zcSelect .selectLabel{
+    width: 100%;
+    height: 34px;
+    line-height: 34px;
+    text-align: left;
+    display: block;
+    color: #333333;
+    cursor: pointer;
+    padding: 0 31px 0 10px;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    white-space:nowrap;
+    position: absolute;
+    z-index: 2;
+}
+.zcSelect .defaultColor{
+    color: #d3d3d3;
+}
+.zcSelect .selectIcon{
+    width:20px;
+    height:20px;
+    position: absolute;
+    cursor: pointer;
+    z-index: 9;
+    top: 7px;
+    right: 5px;
+    display:block;
+}
+.zcSelect .selectIcon .arrow{
+    width: 0;
+    height: 0;
+    line-height: 0px;
+    font-size: 0px;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #ccc;
+    border-left: 5px solid transparent;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    overflow: hidden;
+    margin: -3px 0 0 -5px;
+}
+.zcSelect.disabled .selectLabel,
+.zcSelect.disabled .selectIcon{
+    cursor: default!important;
+}
+.zcSelect .selectLst{
+    display: none;
+    width: 100%;
+    max-height: 150px;
+    position: absolute;
+    z-index: 10;
+    border:1px solid #e0e0e0;
+    background-color: #fff;
+    text-align: left;
+    left: -1px;
+    top: 34px;
+    overflow-y: scroll;
+}
+.zcSelect .selectLst li{
+    height: 30px;
+    line-height:30px;
+    font-size: 12px;
+    padding:0 10px;
+    cursor: pointer;
+    margin-bottom: 1px;
+    white-space: nowrap;
+}
+.zcSelect .selectLst li.selected{
+    background-color: #fafafa;
+    color: #333333;
+}
+.zcSelect .selectLst li:hover{
+    background-color: #fafafa;
+}
+.zcSelect .selectLst li label{
+    display: block;
+    cursor: pointer;
+}
+.zcSelect .selectLst li input{
+    margin: -2px 3px 0 0;
+}
+.zcSelect .inputSelect{
+    display:none;
+    position: absolute;
+    top: 6px;
+    right: 0;
+    z-index: -1;
+    filter:alpha(opacity=0);
+    -moz-opacity:0;
+    opacity:0;
+    cursor: pointer;
+}
+/* input/zcSelect/zcTextarea error style */
+input.error,
+.zcSelect.error,
+.zcTextarea.error{
+    border-color: #ff7373!important;
+}
+
+/* pwSafe : 密码强弱表 */
+.pwSafe{
+    width:90px;
+    height: 14px;
+    line-height: 14px;
+    vertical-align: middle;
+}
+.pwSafe p{
+    display: none;
+    white-space: nowrap;
+}
+.pwSafe span{
+    float: left;
+    width: 18px;
+    height: 4px;
+    border: 1px solid #ff7372;
+    margin-right: 2px;
+    position: relative;
+    top: 4px;
+}
+.pwSafe em{
+    float:left;
+    margin-left: 7px;
+    font-size: 12px;
+    vertical-align: middle;
+    display: none;
+}
+.pwSafe .strengthLv1 .x1{
+    background: #ff7372;
+}
+.pwSafe .strengthLv1 .r{
+    display: inline-block;
+    color: #ff7372;
+}
+.pwSafe .strengthLv2 span{
+    border-color: #ff972e;
+}
+.pwSafe .strengthLv2 .x1,
+.pwSafe .strengthLv2 .x2{
+    background: #ff972e;
+}
+.pwSafe .strengthLv2 .z{
+    display: inline-block;
+    color: #ff972e;
+}
+.pwSafe .strengthLv3 span{
+    border-color: #62c71f;
+}
+.pwSafe .strengthLv3 .x1,
+.pwSafe .strengthLv3 .x2,
+.pwSafe .strengthLv3 .x3{
+    background: #62c71f;
+}
+.pwSafe .strengthLv3 .q{
+    display: inline-block;
+    color: #62c71f;
+}
+/* zcFormTable : 表单所用 */
+.zcFormTable td.n{
+    width: 15%;
+    text-align: right;
+}
+.zcFormTable td.n span{
+    line-height: 30px;
+    display: inline-block;
+}
+.zcFormTable td.v{
+    width: 85%;
+    padding-bottom: 10px;
+}
+.zcFormTable .eleWrap{
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+}
+.zcFormTable .verifyMsg{
+    left: 100%;
+    top:50%;
+    margin:-8px 0 0 10px;
+}
+
+/* verifyMsg : form信息提示 */
+.verifyMsg{
+    display: inline-block;
+    position: absolute;
+}
+.verifyMsg .msg{
+    display: inline-block;
+    height: 16px;
+    line-height: 16px;
+    white-space: nowrap;
+    font-style: normal;
+    font-size: 12px;
+}
+.verifyMsg .msgError{
+    color: #ff7373;
+}
+.verifyMsg .msgOk{
+    color: green;
+}

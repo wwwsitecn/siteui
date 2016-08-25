@@ -1,0 +1,165 @@
+/* zcReset */
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video,input {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    color:#333;
+    border:none;
+    font-style: normal;
+    font-size:100%;
+    background:transparent;
+    outline: none;
+}
+/*html{
+    height: 100%;
+}*/
+html,
+body {
+    /*height: 100%;
+    */min-width: 1200px;
+    line-height:1;
+    font-family:Arial,"Lantinghei SC", "Helvetica Neue","Microsoft YaHei","WenQuanYi Micro Hei", "Heiti SC", "Segoe UI",  sans-serif;
+    font-size: 14px;
+    overflow-x:hidden;
+}
+:focus {
+    outline: none;
+}
+article,aside,canvas,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section,summary {
+    display:block;
+}
+ul,ol {
+    list-style:none;
+}
+blockquote, q {
+    quotes:none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+ins {
+    background-color:#ff9;
+    text-decoration:none;
+}
+mark {
+    background-color:#ff9;
+    font-style:italic;
+    font-weight:bold;
+}
+del {
+    text-decoration: line-through;
+}
+abbr[title], dfn[title] {
+    border-bottom:1px dotted #000;
+    cursor:help;
+}
+table {
+    width:100%;
+    border-collapse:collapse;
+    border-spacing:0;
+}
+hr {
+    display:block;
+    height:1px;
+    border:0;
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+input,textarea{
+    font-size: 14px;
+    font-family:Arial,"Lantinghei SC", "Helvetica Neue","Microsoft YaHei","WenQuanYi Micro Hei", "Heiti SC", "Segoe UI",  sans-serif;
+}
+input, select {
+    vertical-align:middle;
+}
+input::-ms-clear {
+    display: none;
+}
+input:focus,
+textarea:focus {
+    border-color: #bbb!important;
+}
+input.error,
+textarea.error{
+    color: #ccc;
+}
+textarea{
+    resize: none;
+}
+a {
+    margin:0;
+    padding:0;
+    border:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+    text-decoration:none;
+    color: #00a1f1;
+}
+a:hover {
+    color: #00a1f1;
+    text-decoration: underline;
+}
+a:focus {
+    outline-style:none;
+}
+a:active, a:hover {
+    outline: 0;
+}/* placeholder */
+::-webkit-input-placeholder {
+    font-family:"Lantinghei SC", "Helvetica Neue","Microsoft YaHei","WenQuanYi Micro Hei", "Heiti SC", "Segoe UI", Arial, sans-serif;
+    font-size: 14px;
+    color: #ccc;
+}
+:-moz-placeholder {
+    font-family:"Lantinghei SC", "Helvetica Neue","Microsoft YaHei","WenQuanYi Micro Hei", "Heiti SC", "Segoe UI", Arial, sans-serif;
+    font-size: 14px;
+    color:#ccc;
+}
+::-moz-placeholder {
+    font-family:"Lantinghei SC", "Helvetica Neue","Microsoft YaHei","WenQuanYi Micro Hei", "Heiti SC", "Segoe UI", Arial, sans-serif;
+    font-size: 14px;
+    color:#ccc;
+}
+:-ms-input-placeholder {
+    font-family:"Lantinghei SC", "Helvetica Neue","Microsoft YaHei","WenQuanYi Micro Hei", "Heiti SC", "Segoe UI", Arial, sans-serif;
+    font-size: 14px;
+    color:#ccc;
+}
+
+:focus::-webkit-input-placeholder {
+    font-family:"Lantinghei SC", "Helvetica Neue","Microsoft YaHei","WenQuanYi Micro Hei", "Heiti SC", "Segoe UI", Arial, sans-serif;
+    font-size: 14px;
+    color:#e8e8e8;
+}
+:focus:-moz-placeholder {
+    font-family:"Lantinghei SC", "Helvetica Neue","Microsoft YaHei","WenQuanYi Micro Hei", "Heiti SC", "Segoe UI", Arial, sans-serif;
+    font-size: 14px;
+    color:#e8e8e8;
+}
+:focus::-moz-placeholder {
+    font-family:"Lantinghei SC", "Helvetica Neue","Microsoft YaHei","WenQuanYi Micro Hei", "Heiti SC", "Segoe UI", Arial, sans-serif;
+    font-size: 14px;
+    color:    #e8e8e8;
+}
+:focus:-ms-input-placeholder {
+    font-family:"Lantinghei SC", "Helvetica Neue","Microsoft YaHei","WenQuanYi Micro Hei", "Heiti SC", "Segoe UI", Arial, sans-serif;
+    font-size: 14px;
+    color:#e8e8e8;
+}

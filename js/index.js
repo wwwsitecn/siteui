@@ -8,9 +8,9 @@ $(function(){
 				var $pre=$(".content_fen_"+index+" pre"),
 					prelen=$pre.length;
 				for(var i=0;i<prelen;i++){
-					var innerHtml = $pre.eq(i).html();
+					var innerHtml = html($pre.eq(i).html());
 					$pre.eq(i).addClass("prettyprint linenums");
-					$pre.eq(i).empty().html(htmlEncode(innerHtml));
+					$pre.eq(i).empty().html(innerHtml);
 				};
 				if(index==(len-1)){
 					prettyPrint();
@@ -20,14 +20,16 @@ $(function(){
 	});
 	
 });
-
-function htmlEncode(str) {
-    var div = document.createElement("div");
-    div.appendChild(document.createTextNode(str));
-    return div.innerHTML;
+function html(s) {
+	return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
-function htmlDecode(str) {
-    var div = document.createElement("div");
-    div.innerHTML = str;
-    return div.innerHTML;
-}
+// function htmlEncode(str) {
+//     var div = document.createElement("div");
+//     div.appendChild(document.createTextNode(str));
+//     return div.innerHTML;
+// }
+// function htmlDecode(str) {
+//     var div = document.createElement("div");
+//     div.innerHTML = str;
+//     return div.innerHTML;
+// }

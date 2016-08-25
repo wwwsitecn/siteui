@@ -1,0 +1,149 @@
+/* popCover : 遮罩层 */
+.popCover,
+.popCover2{
+    display:none;
+    position: fixed;
+    top:0px;
+    left:0px;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 9990;
+    filter:alpha(opacity=50);
+    -moz-opacity:0.5;
+    opacity:0.5;
+}
+.popCover2{
+    z-index: 9993;
+}
+/* pop : 内容层 */
+.pop,
+.pop2{
+    display:none;
+    position: fixed;
+    top:0px;
+    left:0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9991;
+}
+.pop2{
+    z-index: 9994;
+}
+/* zcDialog : 弹出层主体 */
+.zcDialog{
+    width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border:0px solid #d5d5d5;
+    background-color: #ffffff;
+    overflow: hidden;
+    -webkit-box-shadow: 0 0 8px #b6b6b6;
+    -moz-box-shadow: 0 0 8px #b6b6b6;
+    box-shadow: 0 0 8px #b6b6b6;
+    border-radius:3px;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    -o-border-radius:3px;
+    -webkit-animation: bounceIn2 0.25s ease-in-out;
+    -moz-animation: bounceIn2 0.25s ease-in-out;
+    -ms-animation: bounceIn2 0.25s ease-in-out;
+    -o-animation: bounceIn2 0.25s ease-in-out;
+}
+.zcDialog .btnClose{
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    width: 36px;
+    height: 36px;
+    font-family: "宋体";
+    font-size: 23px;
+    font-weight: bold;
+    color: #aaaaaa;
+    cursor: pointer;
+    text-align: center;
+    line-height: 36px;
+    text-decoration: none;
+}
+.zcDialog .btnClose:hover{
+    background-color: #e33b48;
+    color: #ffffff;
+}
+.zcDialog .dialogT{
+    font-size: 22px;
+    line-height: 24px;
+    text-align: center;
+    font-weight: normal;
+    padding:30px 0;
+}
+.zcDialog .dialogC{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0 0 80px 0;
+}
+.zcDialog .dialogB{
+    position: absolute;
+    bottom:0px;
+    left:0px;
+    height: 60px;
+    line-height: 60px;
+    width: 100%;
+    background-color: #eee;
+    text-align: center;
+    vertical-align: middle;
+}
+.zcDialog .dialogB .cont{
+    line-height: 60px;
+    padding: 0 50px;
+}
+.zcDialog .zcBtn{
+    margin:0 5px;
+}
+/* zcDialogConfirm : 模拟原生"confirm"对话框 */
+.zcDialogConfirm {
+    width: 420px;
+    min-height: 190px;
+    margin: -95px 0 0 -210px;
+}
+.zcDialogConfirm .dialogC{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0 0 60px 0;
+}
+.zcDialogConfirm .info{
+    line-height: 26px;
+    vertical-align: middle;
+    margin: 0 0 20px 0;
+    text-align: center;
+}
+.zcDialogConfirm .info .text{
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 10px;
+}
+.zcDialogConfirm .dialogB{
+    position: absolute;
+    bottom:0px;
+    left:0px;
+    height: 60px;
+    line-height: 60px;
+    width: 100%;
+    background-color: #fff;
+    text-align: center;
+    vertical-align: middle;
+}
+/* zcDialogConfirm 样式2 */
+.dialogConfirm2 .btnNo{
+    position: absolute;
+    left: 50%;
+    top: 17px;
+    margin-left: 50px;
+    padding: 0px;
+    border: none;
+    background: none;
+    color: #999;
+}

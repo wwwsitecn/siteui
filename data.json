@@ -1,12 +1,19 @@
 {
 	"list": [
       {
-        "url": "html/site-ui-btn.html"
+        "url": "html/zcBtn.html"
       },
       {
-        "url": "html/site-ui-form.html"
-      },{
-      	"url": "html/site-ui-dialog.html"
+        "url": "html/zcForm.html"
+      },
+      {
+      	"url": "html/zcDialog.html"
+      },
+      {
+        "url": "html/zcBubbleTip.html"
+      },
+      {
+        "url": "html/zcImgUpload.html"
       }
     ]
 }

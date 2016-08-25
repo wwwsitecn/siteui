@@ -1,0 +1,7 @@
+.ing{
+    width: 16px;
+    height: 16px;
+    background:url(../../images/loading.gif) no-repeat 50% 50%;
+    display: inline-block;
+    vertical-align: middle;
+}

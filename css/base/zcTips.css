@@ -1,0 +1,89 @@
+.zcTips{
+    width: 72px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 100%;
+    margin:-18px 0 0 12px;
+    font-size: 12px;
+    color: #666;
+}
+.zcTips .arrow{
+    display: block;
+    width: 6px;
+    height: 12px;
+    position: absolute;
+    top: 50%;
+    left: -6px;
+    margin: -6px 0 0 0;
+    overflow: hidden;
+}
+.zcTips .arrow b,
+.zcTips .arrow i{
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 12px;
+    font-family: serif;
+    line-height: 14px;
+}
+
+.zcTips .arrow b{
+    color: #ccc;
+}
+.zcTips .arrow i{
+    color: #fff;
+    left: 2px;
+}
+/* .popLayout :  */
+.popLayout{float:left;position: absolute; padding: 0px;}
+.popLayout .cont{ border: 1px solid #ccc; background: #fff;
+    -moz-box-shadow: 0px 0px 5px #e1e1e1;
+    -webkit-box-shadow: 0px 0px 5px #e1e1e1;
+    box-shadow: 0px 0px 5px #e1e1e1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=5, Direction=135, Color='#e1e1e1')";
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=5, Direction=135, Color='#e1e1e1');
+}
+.popLayout .arrow{
+    display: block;
+    width: 20px;
+    height: 10px;
+    overflow: hidden;
+    margin-left: 90%;
+    position: relative;
+    top: 1px;
+}
+.popLayout .arrow b,
+.popLayout .arrow i{
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    font-family: serif;
+    line-height: 20px;
+}
+
+.popLayout .arrow b{
+    color: #ccc;
+}
+.popLayout .arrow i{
+    color: #fff;
+    top: 2px;
+}

@@ -1,0 +1,93 @@
+.zcBtn{
+    height: 28px;
+    line-height: 28px;
+    padding: 0 10px;
+    border-style:solid;
+    border-width:1px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius:3px;
+}
+.zcBtn:hover{
+    text-decoration:none;
+}
+/* 蓝色 : #00a1f1 */
+.btnBlue{
+    background: #00a1f1;
+    border-color:#00a1f1;
+    color: #fff;
+}
+.btnBlue .text{
+    color: #fff;
+}
+.btnBlue:hover,
+.btnBlue:hover .text{
+    color: #fff;
+}
+/* 白色 : #fff */
+.btnWhite{
+    background: #fff;
+    border-color:#e3e3e3;
+    color:#333;
+}
+.btnWhite .text{
+    color:#333;
+}
+/* 黄色 : #ffcd0a */
+.btnYellow{
+    background: #ffcd0a;
+    border-color:#ffcd0a;
+    color:#fff;
+}
+.btnYellow .text{
+    color:#fff;
+}
+/* 绿色 : #89c33e */
+.btnGreen{
+    background: #89c33e;
+    border-color:#89c33e;
+    color:#fff;
+}
+.btnGreen .text{
+    color:#fff;
+}
+.btnYellow:hover,
+.btnGreen:hover{
+    color:#fff;
+}
+/* disabled : 禁用 */
+.zcBtn.disabled,
+.zcBtn.disabled .text,
+.popBtn.disabled{
+    background: #aaa!important;
+    border-color: #aaa!important;
+    color:#fff!important;
+    cursor: not-allowed!important;
+}
+.zcBtn.disabled:hover{
+    color: #fff!important;
+}
+/* zcLoading : 等待状态 */
+.zcBtn .ing{
+    display: none;
+}
+.zcBtn.zcLoading{
+    cursor: not-allowed!important;
+    background: #8bccec!important;
+    border-color: #8bccec!important;
+}
+.zcBtn.zcLoading .icon,
+.zcBtn.zcLoading .text{
+    display: none!important;
+}
+.zcBtn.zcLoading .ing{
+    display: inline-block;
+    margin-top: -2px;
+}
+.zcBtn.zcLoading:hover{
+    background: #8bccec!important;
+    border-color: #8bccec!important;
+}
