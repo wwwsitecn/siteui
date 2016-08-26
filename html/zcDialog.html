@@ -31,29 +31,42 @@
 				    <div class="dialogB">
 				        <div class="cont">
 				        	<a href="javascript:;" class="zcBtn btnWhite btnNo">取消</a>
-				            <a href="javascript:;" class="zcBtn btnBlue btnYes"><span class="text">确认</span></a>
+				            <a href="javascript:;" class="zcBtn btnBlue btnYes"><span class="text">确认</span><span class="ing"></span></a>
 				        </div>
 				    </div>
 				</div>
+				<a href="javascript:;" class="zcBtn btnWhite btnDemo" id="zcDialogDemo1">点击查看</a>
 			</div>
 			<!-- 源码 -->
 			<div class="sourceCode">
 				<pre>
-					<!-- 基本弹框 -->
-					<div class="zcDialog">
-					    <a class="btnClose" href="javascript:">×</a>
-					    <h2 class="dialogT">提示</h2>
-					    <div class="dialogC">
-					        <div class="cont">内容区</div>
-					    </div>
-					    <div class="dialogB">
-					        <div class="cont">
-					        	<a href="javascript:;" class="zcBtn btnWhite btnNo">取消</a>
-					            <a href="javascript:;" class="zcBtn btnBlue btnYes"><span class="text">确认</span></a>
-					        </div>
-					    </div>
-					</div>
-				</pre>
+<!-- 基本弹框 -->
+<div class="zcDialog">
+    <a class="btnClose" href="javascript:">×</a>
+    <h2 class="dialogT">提示</h2>
+    <div class="dialogC">
+        <div class="cont">内容区</div>
+    </div>
+    <div class="dialogB">
+        <div class="cont">
+        	<a href="javascript:;" class="zcBtn btnWhite btnNo">取消</a>
+            <a href="javascript:;" class="zcBtn btnBlue btnYes"><span class="text">确认</span><span class="ing"></span></a>
+        </div>
+    </div>
+</div>
+
+<!-- 点击查看 代码 -->
+$("body").delegate("#zcDialogDemo1","click",function(){
+	ZC_GLOBAL.FUN.popDialog.show({
+		url:"html/demo/zcDialog.html",
+		callbackEnd:function(){						//加载完回调
+			// TODO
+			$(".dialogDemo1 .btnYes").click(function(){		//确认执行方法
+				// TODO
+			});
+		}
+	});
+});</pre>
 			</div>
 			<!-- 实例 -->
 			<div class="example">
@@ -67,28 +80,55 @@
 					</div>
 				    <div class="dialogB">
 			        	<a href="javascript:;" class="zcBtn btnWhite btnNo">否</a>
-			            <a href="javascript:;" class="zcBtn btnBlue btnYes"><span class="text">是</span></a>
+			            <a href="javascript:;" class="zcBtn btnBlue btnYes"><span class="text">是</span><span class="ing"></span></a>
 				    </div>
 				</div>
+				<a href="javascript:;" class="zcBtn btnWhite btnDemo" id="zcDialogDemo2">点击查看</a>
 			</div>
 			<!-- 源码 -->
 			<div class="sourceCode">
 				<pre>
-					<!-- confirm : 对话框 -->
-					<div class="zcDialog zcDialogConfirm">
-				        <a class="btnClose" href="javascript:">×</a>
-				        <h2 class="dialogT"></h2>
-			          	<div class="dialogC">
-				            <div class="info"></div>
-						</div>
-					    <div class="dialogB">
-					        <div class="cont">
-					        	<a href="javascript:;" class="zcBtn btnWhite btnNo"></a>
-					            <a href="javascript:;" class="zcBtn btnBlue btnYes"><span class="text"></span></a>
-					        </div>
-					    </div>
-					</div>
-				</pre>
+<!-- confirm : 对话框 -->
+<div class="zcDialog zcDialogConfirm">
+    <a class="btnClose" href="javascript:">×</a>
+    <h2 class="dialogT"></h2>
+  	<div class="dialogC">
+        <div class="info"></div>
+	</div>
+    <div class="dialogB">
+        <div class="cont">
+        	<a href="javascript:;" class="zcBtn btnWhite btnNo"></a>
+            <a href="javascript:;" class="zcBtn btnBlue btnYes"><span class="text"></span><span class="ing"></span></a>
+        </div>
+    </div>
+</div>
+
+<!-- 点击查看 代码 -->
+$("body").delegate("#zcDialogDemo2","click",function(){
+	ZC_GLOBAL.FUN.popConfirm.show({
+        title: "标题",					// 弹框标题
+        info:"提示信息",					// 弹框正文
+        btnOkText: "是",					// 确定按钮文字
+        btnNoText: "否",					// 否定按钮文字
+        btnOkTextDisplay: true,				// 是否显示确定按钮
+        btnNoTextDisplay: true,				// 是否显示否定按钮
+        addClass: "",					// 自定义样式class类
+        coverShow:true,					// 是否显示遮罩
+        closeCover : true,				// 关闭时是否关闭遮罩
+        closeTarget : 1,				//关闭窗口对象 0:全部窗口 1:本身			
+	callbackYes:function($target){ 			// 点击确定执行事件
+		// TODO
+		ZC_GLOBAL.FUN.popConfirm.close($target)
+	},
+	callbackNo:function($target){			// 点击取消执行事件
+		// TODO
+		ZC_GLOBAL.FUN.popConfirm.close($target)
+	},
+	callbackEnd:function(){				// 窗口弹出后执行事件
+		// TODO
+	}
+	});
+});</pre>
 			</div>
 			<!-- 实例 -->
 			<div class="example">
@@ -109,18 +149,18 @@
 			<!-- 源码 -->
 			<div class="sourceCode">
 				<pre>
-					<!-- confirm : 对话框样式2 -->
-					<div class="zcDialog zcDialogConfirm dialogConfirm2">
-				        <a class="btnClose" href="javascript:">×</a>
-				        <h2 class="dialogT"></h2>
-			          	<div class="dialogC">
-				            <div class="info"></div>
-						</div>
-					    <div class="dialogB">
-				        	<a href="javascript:;" class="zcBtn btnWhite btnNo"></a>
-				            <a href="javascript:;" class="zcBtn btnBlue btnYes"><span class="text"></span></a>
-					    </div>
-					</div>
+<!-- confirm : 对话框样式2 -->
+<div class="zcDialog zcDialogConfirm dialogConfirm2">
+    <a class="btnClose" href="javascript:">×</a>
+    <h2 class="dialogT"></h2>
+  	<div class="dialogC">
+        <div class="info"></div>
+	</div>
+    <div class="dialogB">
+    	<a href="javascript:;" class="zcBtn btnWhite btnNo"></a>
+        <a href="javascript:;" class="zcBtn btnBlue btnYes"><span class="text"></span></a>
+    </div>
+</div>
 				</pre>
 			</div>
 		</div>

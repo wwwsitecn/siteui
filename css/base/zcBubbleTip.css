@@ -1,6 +1,6 @@
 /* zcBubbleTip : 冒泡提示 */
 .zcBubbleTip{
-    display:inline-block;
+    display:none;
     padding:15px 18px;
     background-color: #fff;
     -webkit-box-shadow: 0 0 8px #b6b6b6;
@@ -12,6 +12,11 @@
     -o-border-radius:3px;
     vertical-align: middle;
     border: 1px solid #d5d5d5;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 99999;
+    white-space: nowrap;
 }
 .zcBubbleTip .text{
     display:inline-block;
