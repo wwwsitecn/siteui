@@ -31,13 +31,17 @@
 			<!-- 源码 -->
 			<div class="sourceCode">
 				<pre id="demo">
-					<div class="zcBubbleTip">
-					 	<div class="cont">
-					  		<i class="icon fa-paperclip"></i>
-					    	<span class="text">提示信息</span>
-					    </div>
-					</div>
-				</pre>
+<div class="zcBubbleTip">
+    <div class="cont">
+        <i class="icon fa-paperclip"></i>
+        <span class="text">提示信息</span>
+    </div>
+</div>
+
+<!-- 点击查看 -->
+$("body").delegate("#zcDemo3","click",function(){
+    ZC_GLOBAL.FUN.zcBubbleTip.show({icon:"fa-paperclip",msg:"冒泡提示信息",times:1000});
+});</pre>
 			</div>
 		</div>
 	</div>

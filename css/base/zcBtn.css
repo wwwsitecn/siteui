@@ -1,4 +1,5 @@
 .zcBtn{
+    min-width: 55px;
     height: 30px;
     line-height: 30px;
     padding: 0 29px;
@@ -144,6 +145,7 @@
 
 /* 大按钮 */
 .zcBtn.btnBg{
+    min-width: 65px;
     height: 42px;
     line-height: 42px;
     border-width: 2px;

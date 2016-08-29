@@ -114,6 +114,25 @@
 							</td>
 						</tr>
 						<tr>
+							<td class="n" valign="top"><span>获取校验码：</span></td>
+							<td class="v" valign="top">
+								<span class="eleWrap">
+									<div class="zcSmsVeriCode">
+										<input type="text" placeholder="短信校验码" maxlength="4" value="" name="smsVeriCode" disabled="disabled" class="zcInput">
+										<span class="getCode" id="demo4">获取校验码</span>
+										<span class="verifyMsg">
+											<i class="msg msgError"></i>
+										</span>
+										<span class="zcTips">
+											4位号码
+											<span class="arrow"><b>◆</b><i>◆</i></span>
+										</span>
+									</div>　　　　　　　
+									<a href="javascript:;" class="zcBtn" id="stopVeriCode">clear</a>
+								</span>
+							</td>
+						</tr>
+						<tr>
 							<td class="n" valign="top"></td>
 							<td class="v" valign="top">
 								<a href="javascript:;" class="zcBtn btnBlue">提交</a>
@@ -127,105 +146,120 @@
 				<pre>
 <!-- form全案例 -->
 <table class="zcFormTable">
-	<tbody>
-		<tr>
-			<td class="n" valign="top"><span>手机号：</span></td>
-			<td class="v" valign="top">
-				<span class="eleWrap">
-					<input type="tel" class="zcInput" placeholder="placeholder文案" />
-	                <span class="verifyMsg">
-	                    <i class="msg msgOk">正确信息</i>
-	                </span>
-				</span>
-			</td>
-		</tr>
-		<tr>
-			<td class="n" valign="top"><span>email：</span></td>
-			<td class="v" valign="top">
-				<span class="eleWrap">
-					<input type="tel" class="zcInput" placeholder="placeholder文案" />
-	                <span class="verifyMsg">
-	                    <i class="msg msgOk"></i>
-	                </span>
-				</span>
-			</td>
-		</tr>
-		<tr>
-			<td class="n" valign="top"><span>性别：</span></td>
-			<td class="v" valign="top">
-				<span class="eleWrap">
-					<label class="zcRadio"><input type="radio" name="sex"/><span class='text'>男</span></label>
-					<label class="zcRadio"><input type="radio" name="sex"/><span class='text'>女</span></label>
-	                <span class="verifyMsg">
-	                    <i class="msg msgOk"></i>
-	                </span>
-				</span>
-			</td>
-		</tr>
-		<tr>
-			<td class="n" valign="top"><span>爱好：</span></td>
-			<td class="v" valign="top">
-				<span class="eleWrap">
-					<label class="zcCheckbox"><input type="checkbox" name="group"/><span class='text'>看书</span></label>
-					<label class="zcCheckbox"><input type="checkbox" name="group"/><span class='text'>游戏</span></label>
-					<label class="zcCheckbox"><input type="checkbox" name="group"/><span class='text'>吃饭</span></label>
-					<label class="zcCheckbox"><input type="checkbox" name="group"/><span class='text'>睡觉</span></label>
-	                <span class="verifyMsg">
-	                    <i class="msg msgOk"></i>
-	                </span>
-				</span>
-			</td>
-		</tr>
-		<tr>
-			<td class="n" valign="top"><span>用户名：</span></td>
-			<td class="v" valign="top">
-				<span class="eleWrap">
-					<input type="text" class="zcInput error" placeholder="placeholder文案" />
-	                <span class="verifyMsg">
-	                    <i class="msg msgError">错误信息</i>
-	                </span>
-				</span>
-			</td>
-		</tr>
-		<tr>
-			<td class="n" valign="top"><span>密码：</span></td>
-			<td class="v" valign="top">
-				<span class="eleWrap">
-					<input type="password" class="zcInput error" placeholder="placeholder文案" />
-	                <span class="verifyMsg">
-	                    <i class="msg msgError">错误信息</i>
-	                </span>
-				</span>
-			</td>
-		</tr>
-		<tr>
-			<td class="n" valign="top"><span>支付密码：</span></td>
-			<td class="v" valign="top">
-				<span class="eleWrap">
-					<span class="zcPayPassword">
-						<input type="hidden" name="" value="" placeholder="" />
-						<span class="clear">
-							<i onpaste="return false" ondragenter="return false" oncontextmenu="return false;" contenteditable="true" class="pw"></i>
-							<i onpaste="return false" ondragenter="return false" oncontextmenu="return false;" contenteditable="false" class="pw"></i>
-							<i onpaste="return false" ondragenter="return false" oncontextmenu="return false;" contenteditable="false" class="pw"></i>
-							<i onpaste="return false" ondragenter="return false" oncontextmenu="return false;" contenteditable="false" class="pw"></i>
-							<i onpaste="return false" ondragenter="return false" oncontextmenu="return false;" contenteditable="false" class="pw"></i>
-							<i onpaste="return false" ondragenter="return false" oncontextmenu="return false;" contenteditable="false" class="pw"></i>
-						</span>
-					</span>
-	                <span class="verifyMsg">
-	                    <i class="msg msgError"></i>
-	                </span>
-				</span>
-			</td>
-		</tr>
-		<tr>
-			<td class="n" valign="top"></td>
-			<td class="v" valign="top">
-				<a href="javascript:;" class="zcBtn btnBlue">提交</a>
-			</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td class="n" valign="top"><span>手机号：</span></td>
+            <td class="v" valign="top">
+                <span class="eleWrap">
+                    <input type="tel" class="zcInput" placeholder="placeholder文案" />
+                    <span class="verifyMsg">
+                        <i class="msg msgOk">正确信息</i>
+                    </span>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td class="n" valign="top"><span>email：</span></td>
+            <td class="v" valign="top">
+                <span class="eleWrap">
+                    <input type="tel" class="zcInput" placeholder="placeholder文案" />
+                    <span class="verifyMsg">
+                        <i class="msg msgOk"></i>
+                    </span>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td class="n" valign="top"><span>性别：</span></td>
+            <td class="v" valign="top">
+                <span class="eleWrap">
+                    <label class="zcRadio"><input type="radio" name="sex"/><span class='text'>男</span></label>
+                    <label class="zcRadio"><input type="radio" name="sex"/><span class='text'>女</span></label>
+                    <span class="verifyMsg">
+                        <i class="msg msgOk"></i>
+                    </span>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td class="n" valign="top"><span>爱好：</span></td>
+            <td class="v" valign="top">
+                <span class="eleWrap">
+                    <label class="zcCheckbox"><input type="checkbox" name="group"/><span class='text'>看书</span></label>
+                    <label class="zcCheckbox"><input type="checkbox" name="group"/><span class='text'>游戏</span></label>
+                    <label class="zcCheckbox"><input type="checkbox" name="group"/><span class='text'>吃饭</span></label>
+                    <label class="zcCheckbox"><input type="checkbox" name="group"/><span class='text'>睡觉</span></label>
+                    <span class="verifyMsg">
+                        <i class="msg msgOk"></i>
+                    </span>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td class="n" valign="top"><span>用户名：</span></td>
+            <td class="v" valign="top">
+                <span class="eleWrap">
+                    <input type="text" class="zcInput error" placeholder="placeholder文案" />
+                    <span class="verifyMsg">
+                        <i class="msg msgError">错误信息</i>
+                    </span>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td class="n" valign="top"><span>密码：</span></td>
+            <td class="v" valign="top">
+                <span class="eleWrap">
+                    <input type="password" class="zcInput error" placeholder="placeholder文案" />
+                    <span class="verifyMsg">
+                        <i class="msg msgError">错误信息</i>
+                    </span>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td class="n" valign="top"><span>支付密码：</span></td>
+            <td class="v" valign="top">
+                <span class="eleWrap">
+                    <span class="zcPayPassword">
+                        <input type="hidden" name="" value="" placeholder="" />
+                        <span class="clear">
+                            <i onpaste="return false" ondragenter="return false" oncontextmenu="return false;" contenteditable="true" class="pw"></i>
+                            <i onpaste="return false" ondragenter="return false" oncontextmenu="return false;" contenteditable="false" class="pw"></i>
+                            <i onpaste="return false" ondragenter="return false" oncontextmenu="return false;" contenteditable="false" class="pw"></i>
+                            <i onpaste="return false" ondragenter="return false" oncontextmenu="return false;" contenteditable="false" class="pw"></i>
+                            <i onpaste="return false" ondragenter="return false" oncontextmenu="return false;" contenteditable="false" class="pw"></i>
+                            <i onpaste="return false" ondragenter="return false" oncontextmenu="return false;" contenteditable="false" class="pw"></i>
+                        </span>
+                    </span>
+                    <span class="verifyMsg">
+                        <i class="msg msgError"></i>
+                    </span>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td class="n" valign="top"><span>获取校验码：</span></td>
+            <td class="v" valign="top">
+                <span class="eleWrap">
+                    <div class="zcSmsVeriCode">
+                        <input type="text" placeholder="短信校验码" maxlength="4" value="" name="smsVeriCode" disabled="disabled" class="zcInput">
+                        <span class="getCode" id="demo4">获取校验码</span>
+                        <span class="verifyMsg">
+                            <i class="msg msgError"></i>
+                        </span>
+                        <span class="zcTips">4位号码<span class="arrow"><b>◆</b><i>◆</i></span></span>
+                    </div>　　　　　　　
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td class="n" valign="top"></td>
+            <td class="v" valign="top">
+                <a href="javascript:;" class="zcBtn btnBlue">提交</a>
+            </td>
+        </tr>
+    </tbody>
 </table>
 				</pre>
 			</div>
@@ -233,13 +267,25 @@
 			<div class="example">
 				<h2>实例:</h2>
 				<h3>input</h3>
-				<input type="text" class="zcInput" placeholder="placeholder文案" />
+				<input type="text" class="zcInput" placeholder="默认" /><br><br>
+				<input type="text" class="zcInput inputSmall" placeholder="Small  150px " /><br><br>
+				<input type="text" class="zcInput inputMedium" placeholder="Medium  200px " /><br><br>
+				<input type="text" class="zcInput inputLarge" placeholder="Large  270px " /><br><br>
+				<input type="text" class="zcInput inputExLarge" placeholder="Extra Large  320px " />
 			</div>
 			<!-- 源码 -->
 			<div class="sourceCode">
 				<pre>
-<!-- 文本框 -->
-<input type="text" class="zcInput" placeholder="placeholder文案" />
+<!-- 默认 -->
+<input type="text" class="zcInput" placeholder="默认" />
+<!-- 宽:150px -->
+<input type="text" class="zcInput inputSmall" placeholder="Small  150px " />
+<!-- 宽:200px -->
+<input type="text" class="zcInput inputMedium" placeholder="Medium  200px " />
+<!-- 宽:270px -->
+<input type="text" class="zcInput inputLarge" placeholder="Large  270px " />
+<!-- 宽:320px -->
+<input type="text" class="zcInput inputExLarge" placeholder="Extra Large  320px " />
 				</pre>
 			</div>
 			<!-- 实例 -->
@@ -309,6 +355,35 @@
 	<option>3</option>
 </select>
 				</pre>
+			</div>
+			<!-- 实例 -->
+			<div class="example">
+				<h2>实例:</h2>
+				<h3>获取校验码</h3>
+				<div class="zcSmsVeriCode">
+					<input type="text" placeholder="短信校验码" maxlength="4" value="" name="smsVeriCode" disabled="disabled" class="zcInput">
+					<span class="getCode">获取校验码</span>
+					<span class="verifyMsg">
+						<i class="msg msgError"></i>
+					</span>
+					<span class="zcTips">
+						4位号码
+						<span class="arrow"><b>◆</b><i>◆</i></span>
+					</span>
+				</div>	
+			</div>
+			<!-- 源码 -->
+			<div class="sourceCode">
+				<pre>
+<div class="zcSmsVeriCode">
+    <input type="text" placeholder="短信校验码" maxlength="4" value="" name="smsVeriCode" disabled="disabled" class="zcInput">
+    <span class="getCode">获取校验码</span>
+    <span class="verifyMsg">
+        <i class="msg msgError"></i>
+    </span>
+    <span class="zcTips">4位号码<span class="arrow"><b>◆</b><i>◆</i></span></span>
+</div>
+                    </pre>
 			</div>
 		</div>
 		

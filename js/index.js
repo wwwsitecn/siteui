@@ -1,5 +1,5 @@
 $(function(){
-	$.getJSON('data.json',function(data){
+	$.getJSON('page.json',function(data){
 		var len = data.list.length;
 		$.each(data.list,function(index,value){
 			$(".content_left").append("<div class='uiLeft content_fen_"+index+"'></div>");
@@ -65,6 +65,17 @@ $(function(){
 	$("body").delegate("#zcDemo3","click",function(){
 		ZC_GLOBAL.FUN.zcBubbleTip.show({icon:"fa-paperclip",msg:"冒泡提示信息",times:1000});
 	});
+
+	$("body").delegate("#demo4","click",function(){
+		var $this = $(this);
+		ZC_GLOBAL.FUN.zcGetVeriCode.get({url:"data.json",$target:$this,callbackEnd:function(){alert("end")}});
+		$("#stopVeriCode").show().click(function(){
+			ZC_GLOBAL.FUN.zcGetVeriCode.clear($this);
+		});
+	});
+
+	// 支付密码
+	ZC_GLOBAL.FUN.zcPayPassword();
 });
 function html(s) {
 	return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');

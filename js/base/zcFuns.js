@@ -1,5 +1,70 @@
 ZC_GLOBAL={};
 ZC_GLOBAL.FUN = {};
+ZC_GLOBAL.FUN.zcGetData = function(params) {
+    var defaults = {
+        url: "",
+        contentType : "",
+        param:"",
+        callBackSuccess: function () {},
+        callBackFail: function () {},
+        relogin:false
+    };
+    $.extend(defaults, params);
+
+    if (defaults.contentType == "json") {
+        var contentType = "application/json; charset=utf-8";
+    } else if (defaults.contentType == "multipart") {
+        var contentType = "multipart/form-data";
+    } else {
+        var contentType = "application/x-www-form-urlencoded; charset=UTF-8";
+    };
+
+    $.ajax({
+        type: "POST",
+        url: defaults.url,
+        dataType: "json",
+        data: defaults.param,
+        contentType: contentType,
+        success: function (msg) {
+            if (msg.status == -1) {
+                if (typeof defaults.relogin == "undefined") {//typeof relogin=="undefined" 返回登录页(默认为跳转登录页)
+                    ZC_GLOBAL.FUN.zcBubbleTip.show({
+                        msg: "登录超时",
+                        icon: "icon-warnning-02",
+                        coverShow: false,
+                        times: 1000
+                    });
+                    setTimeout(function () {
+                        location.href = "../login/index.html?url=" + encodeURIComponent(window.location.href);
+                    }, 1000);
+                } else {
+                    if (defaults.relogin && typeof defaults.relogin == "function") {
+                        defaults.relogin(msg);
+                    }
+                }
+            } else {
+                if (defaults.callBackSuccess && typeof defaults.callBackSuccess == "function") {
+                    defaults.callBackSuccess(msg);
+                }
+            };
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            //console.log(XMLHttpRequest);
+            //console.log(textStatus);
+            //console.log(errorThrown);
+            if (defaults.callBackFail && typeof defaults.callBackFail == "function") {
+                defaults.callBackFail(XMLHttpRequest, textStatus, errorThrown);
+            } else {
+                ZC_GLOBAL.FUN.zcBubbleTip.show({
+                    msg: "站场出现小问题，请稍后再试",
+                    icon: "icon-warnning-02",
+                    coverShow: false,
+                    times: 1500
+                });
+            }
+        }
+    });
+};
 ZC_GLOBAL.FUN.zcCheckbox=function(){
     $("body").delegate(".zcCheckbox input","click",function(){
         var $this = $(this);
@@ -406,5 +471,65 @@ ZC_GLOBAL.FUN.zcBubbleTip = {
         setTimeout(function(){
             $(".zcBubbleTip").remove();
         },params.times)
+    }
+};
+
+ZC_GLOBAL.FUN.zcGetVeriCode = {
+    get:function(param){
+        var params = {
+            url:"",
+            $target : ""
+        };
+        $.extend(params, param);
+
+        ZC_GLOBAL.FUN.zcGetData({
+            url: params.url,
+            param:params.param,
+            callBackSuccess: function (msg) {
+                var status = msg.status,
+                    data = msg.data;
+                if (status == 0) {
+                    params.$target.siblings("input").removeAttr("disabled");
+                    ZC_GLOBAL.FUN.zcGetVeriCode.timedown({$target:params.$target});
+                } else {
+                    ZC_GLOBAL.FUN.zcBubbleTip.show({msg: "加载异常", icon: "icon-warnning-02", times: 500, coverShow: false});
+                };
+            }
+        });
+    },
+    timedown: function (param) {
+        var params = {
+            seconds: 60,
+            $target : ""
+        };
+        $.extend(params, param);
+        var countdown = params.seconds,
+            $this = params.$target;
+
+        if (countdown == 0) {
+            ZC_GLOBAL.FUN.zcGetVeriCode.clear($this,params.callbackEnd)
+        } else {
+            if(!$this.attr("data-timesid")){
+                $this.attr("data-timesid",("td_" + new Date().getTime()) );
+            }
+            $this.text(countdown + "秒");
+            if ($this.siblings(".smsVeriCode").attr("disabled") == "disabled") {
+                $this.siblings(".smsVeriCode").removeAttr("disabled");
+            };
+            countdown--;
+            var param = {
+                seconds: countdown,
+                $target : $this,
+                callbackEnd: params.callbackEnd       
+            };
+            window[$this.attr("data-timesid")] = setTimeout(function () {
+                ZC_GLOBAL.FUN.zcGetVeriCode.timedown(param)
+            }, 1000);
+        }
+    },
+    clear: function ($target) {
+        $target.removeClass("disabled");
+        $target.text("重新获取");
+        clearTimeout(window[$target.attr("data-timesid")]);
     }
 };

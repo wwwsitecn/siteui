@@ -88,8 +88,8 @@
 	margin:0 auto;
 }
 .content_left{
-	width: 970px;
-	float: left;
+/*	width: 970px;
+	float: left;*/
 }
 
 .content_left .title h1{
@@ -104,7 +104,6 @@
 	font-weight: normal;
 }
 .content_left .box{
-	width: 918px;
 	border: solid 1px #eeeeee;
 	border-radius: 5px;
 	margin-bottom: 30px;
@@ -127,7 +126,11 @@
 	float: left;
 	margin: 0px 10px 10px 20px ;
 }
-
+.describe{
+	color: #aaa;
+	line-height: 20px;
+	margin-bottom: 20px;
+}
 
 
 
@@ -138,6 +141,7 @@
 .content_right{
 	width: 230px;
 	float: right;
+	display: none;
 }
 .content_right div{
 	border-bottom: solid 1px #ccc;

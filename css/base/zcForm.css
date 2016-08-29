@@ -2,7 +2,6 @@
 .zcInput{
     width: 200px;
     line-height: 36px;
-    line-height: 36px;
     padding:0 10px;
     border: 1px solid #ccc;
     color: #aaa;
@@ -15,7 +14,18 @@
     border: 1px solid #ccc;
     color: #aaa;
 }
-
+.zcInput.inputSmall{
+    width:128px;
+}
+.zcInput.inputMedium{
+    width:178px;
+}
+.zcInput.inputLarge{
+    width:248px;
+}
+.zcInput.inputExLarge{
+    width:298px;
+}
 /* zcRadio : radio  */
 .zcRadio{
     display: inline-block;
@@ -303,16 +313,16 @@ input.error,
 }
 /* zcFormTable : 表单所用 */
 .zcFormTable td.n{
-    width: 15%;
+    width: 120px;
     text-align: right;
 }
 .zcFormTable td.n span{
     line-height: 38px;
     display: inline-block;
+    color: #999;
 }
 .zcFormTable td.v{
-    width: 85%;
-    padding-bottom: 10px;
+    padding: 0 0 15px 10px;
 }
 .zcFormTable .eleWrap{
     position: relative;
@@ -343,4 +353,22 @@ input.error,
 }
 .verifyMsg .msgOk{
     color: green;
+}
+
+/* zcSmsVeriCode */
+.zcSmsVeriCode{
+    position: relative;
+    display: inline-block;
+}
+.zcSmsVeriCode .getCode{
+    position: absolute;
+    top: 6px;
+    right: 1px;
+    width: 89px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    border-left: 1px solid #e0e0e0;
+    color: #666;
+    cursor: pointer;
 }
