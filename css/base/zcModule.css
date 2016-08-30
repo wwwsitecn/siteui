@@ -40,7 +40,7 @@
 
 
 .root .logoWrap{width: 182px;height: 39px;position: absolute;top: 33px;left: 50px;z-index: 1}
-.root .logo{width: 182px;height: 39px;display: inline-block;}
+.root .logo{width: 182px;height: 39px;display: inline-block;background: url(../../images/zc_logo_04.png) no-repeat;}
 .root .logoWrap span{position: absolute;left:100%;bottom:0px;color: #ededed;white-space: nowrap;margin-left: 20px;cursor: default;}
 .root .logoWrap .beta{position: absolute;left:100%;top:0px;color: #fff;margin-left: 20px;opacity: 0.7;}
 

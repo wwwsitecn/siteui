@@ -5,3 +5,7 @@
     display: inline-block;
     vertical-align: middle;
 }
+
+.pageLogin,
+.pageRegister{background:#000 url(../../images/zc_login_bg.jpg) 50% 50% no-repeat;}
+.pageLogin .loginForm .slogan{background: url(../../images/zc_slogan.png) 50% 0 no-repeat;}

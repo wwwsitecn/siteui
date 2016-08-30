@@ -68,9 +68,9 @@ $(function(){
 
 	$("body").delegate("#demo4","click",function(){
 		var $this = $(this);
-		ZC_GLOBAL.FUN.zcGetVeriCode.get({url:"data.json",$target:$this,callbackEnd:function(){alert("end")}});
+		ZC_GLOBAL.FUN.getVeriCode.get({url:"data.json",$target:$this,callbackEnd:function(){alert("end")}});
 		$("#stopVeriCode").show().click(function(){
-			ZC_GLOBAL.FUN.zcGetVeriCode.clear($this);
+			ZC_GLOBAL.FUN.getVeriCode.clear($this);
 		});
 	});
 

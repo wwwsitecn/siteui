@@ -13,13 +13,14 @@
 		<!-- 标题和解释 -->
 		<div class="title">
 			<h1>Form</h1>
-			<p>描述：form表单相关元素;css文件：</p>
 		</div>
 		<div class="box">
 			<!-- 实例 -->
 			<div class="example">
-				<h2>实例:</h2>
-				<h3>form table</h3>
+				<h2>Form表单全实例</h2>
+				<p>描述：</p>
+				<p class="describe">包含：输入框，文本域，下拉选择，文本框/文本域提示信息，radio组，checkbox组，6位支付密码输入框组，获取校验码，密码强度，日历(JQ UI)。</p>
+				<h3>DEMO</h3>
 				<table class="zcFormTable">
 					<tbody>
 						<tr>
@@ -85,7 +86,10 @@
 							<td class="n" valign="top"><span>密码：</span></td>
 							<td class="v" valign="top">
 								<span class="eleWrap">
-									<input type="password" class="zcInput error" placeholder="placeholder文案" />
+									<input type="password" class="zcInput zcPassword" placeholder="placeholder文案" />
+									<div class="zcPwStrength">
+										<span class="x1"></span><span class="x2"></span><span class="x3"></span><em class="r">弱</em><em class="z">中</em><em class="q">强</em>
+									</div>
 					                <span class="verifyMsg">
 					                    <i class="msg msgError">错误信息</i>
 					                </span>
@@ -119,7 +123,7 @@
 								<span class="eleWrap">
 									<div class="zcSmsVeriCode">
 										<input type="text" placeholder="短信校验码" maxlength="4" value="" name="smsVeriCode" disabled="disabled" class="zcInput">
-										<span class="getCode" id="demo4">获取校验码</span>
+										<span class="getCode" id="demo4"><em class="text">获取校验码</em><em class="ing"></em></span>
 										<span class="verifyMsg">
 											<i class="msg msgError"></i>
 										</span>
@@ -210,7 +214,10 @@
             <td class="n" valign="top"><span>密码：</span></td>
             <td class="v" valign="top">
                 <span class="eleWrap">
-                    <input type="password" class="zcInput error" placeholder="placeholder文案" />
+                    <input type="password" class="zcInput zcPassword" placeholder="placeholder文案" />
+                    <div class="zcPwStrength">
+                        <span class="x1"></span><span class="x2"></span><span class="x3"></span><em class="r">弱</em><em class="z">中</em><em class="q">强</em>
+                    </div>
                     <span class="verifyMsg">
                         <i class="msg msgError">错误信息</i>
                     </span>
@@ -244,7 +251,7 @@
                 <span class="eleWrap">
                     <div class="zcSmsVeriCode">
                         <input type="text" placeholder="短信校验码" maxlength="4" value="" name="smsVeriCode" disabled="disabled" class="zcInput">
-                        <span class="getCode" id="demo4">获取校验码</span>
+                        <span class="getCode"><em class="text">获取校验码</em><em class="ing"></em></span>
                         <span class="verifyMsg">
                             <i class="msg msgError"></i>
                         </span>
@@ -260,13 +267,17 @@
             </td>
         </tr>
     </tbody>
-</table>
-				</pre>
+</table></pre>
 			</div>
 			<!-- 实例 -->
 			<div class="example">
-				<h2>实例:</h2>
-				<h3>input</h3>
+				<h2>INPUT</h2>
+                <p>描述：</p>
+                <p class="describe">
+                    高度：38px<br />
+                    宽度：222px(默认)
+                </p>
+				<h3>DEMO</h3>
 				<input type="text" class="zcInput" placeholder="默认" /><br><br>
 				<input type="text" class="zcInput inputSmall" placeholder="Small  150px " /><br><br>
 				<input type="text" class="zcInput inputMedium" placeholder="Medium  200px " /><br><br>
@@ -290,21 +301,25 @@
 			</div>
 			<!-- 实例 -->
 			<div class="example">
-				<h2>实例:</h2>
-				<h3>textarea</h3>
+				<h2>TEXTAREA</h2>
+                <p>描述：</p>
+                <p class="describe">
+                    高度：71px<br />
+                    宽度：222px(默认)
+                </p>
+				<h3>DEMO</h3>
 				<textarea class="zcTextarea" placeholder="placeholder文案" ></textarea>
 			</div>
 			<!-- 源码 -->
 			<div class="sourceCode">
 				<pre>
 <!-- 文本域 -->
-<textarea class="zcTextarea" placeholder="placeholder文案" ></textarea>
-				</pre>
+<textarea class="zcTextarea" placeholder="placeholder文案" ></textarea></pre>
 			</div>
 			<!-- 实例 -->
 			<div class="example">
-				<h2>实例:</h2>
-				<h3>radio</h3>
+				<h2>RADIO</h2>
+				<h3>DEMO</h3>
 				<label class="zcRadio"><input type="radio" name="sex"/><span class='text'>男</span></label>
 				<label class="zcRadio"><input type="radio" name="sex"/><span class='text'>女</span></label>
 			</div>
@@ -313,13 +328,12 @@
 				<pre>
 <!-- 单选按钮 -->
 <label class="zcRadio"><input type="radio" name="sex"/><span class='text'>男</span></label>
-<label class="zcRadio"><input type="radio" name="sex"/><span class='text'>女</span></label>
-				</pre>
+<label class="zcRadio"><input type="radio" name="sex"/><span class='text'>女</span></label></pre>
 			</div>
 			<!-- 实例 -->
 			<div class="example">
-				<h2>实例:</h2>
-				<h3>checkbox</h3>
+				<h2>CHECKBOX</h2>
+				<h3>DEMO</h3>
 				<label class="zcCheckbox"><input type="checkbox" name="group"/><span class='text'>group1</span></label>
 				<label class="zcCheckbox"><input type="checkbox" name="group"/><span class='text'>group2</span></label>
 				<label class="zcCheckbox"><input type="checkbox" name="group"/><span class='text'>group3</span></label>
@@ -332,13 +346,12 @@
 <label class="zcCheckbox"><input type="checkbox" name="group"/><span class='text'>group1</span></label>
 <label class="zcCheckbox"><input type="checkbox" name="group"/><span class='text'>group2</span></label>
 <label class="zcCheckbox"><input type="checkbox" name="group"/><span class='text'>group3</span></label>
-<label class="zcCheckbox"><input type="checkbox" name="group"/><span class='text'>group4</span></label>
-				</pre>
+<label class="zcCheckbox"><input type="checkbox" name="group"/><span class='text'>group4</span></label></pre>
 			</div>
 			<!-- 实例 -->
 			<div class="example">
-				<h2>实例:</h2>
-				<h3>select</h3>
+				<h2>SELECT</h2>
+				<h3>DEMO</h3>
 				<select>
 					<option>1</option>
 					<option>2</option>
@@ -358,11 +371,15 @@
 			</div>
 			<!-- 实例 -->
 			<div class="example">
-				<h2>实例:</h2>
-				<h3>获取校验码</h3>
+				<h2>获取校验码</h2>
+                <p>描述：</p>
+                <p class="describe">
+                    默认输入框不可键入，获取验证码成功后才可以输入。
+                </p>
+				<h3>DEMO</h3>
 				<div class="zcSmsVeriCode">
 					<input type="text" placeholder="短信校验码" maxlength="4" value="" name="smsVeriCode" disabled="disabled" class="zcInput">
-					<span class="getCode">获取校验码</span>
+					<span class="getCode"><em class="text">获取校验码</em><em class="ing"></em></span>
 					<span class="verifyMsg">
 						<i class="msg msgError"></i>
 					</span>
@@ -377,13 +394,12 @@
 				<pre>
 <div class="zcSmsVeriCode">
     <input type="text" placeholder="短信校验码" maxlength="4" value="" name="smsVeriCode" disabled="disabled" class="zcInput">
-    <span class="getCode">获取校验码</span>
+    <span class="getCode"><em class="text">获取校验码</em><em class="ing"></em></span>
     <span class="verifyMsg">
         <i class="msg msgError"></i>
     </span>
     <span class="zcTips">4位号码<span class="arrow"><b>◆</b><i>◆</i></span></span>
-</div>
-                    </pre>
+</div></pre>
 			</div>
 		</div>
 		

@@ -1,0 +1,34 @@
+/* 图片上传 */
+.uploadWrap{margin-bottom: 10px;}
+.uploadWrap .imgItem{display:inline-block;float: left;margin-right: 20px;width: auto;height: auto;}
+.uploadWrap .imgItem.ing{background: none;}
+.uploadWrap .imgItem.ing .loading{display: block;}
+.uploadWrap .imgItem.ing .operate a{display: none;}
+.uploadWrap .imgs{width: 58px;height: 58px;line-height: 58px;text-align: center;font-size: 0px;border: 1px solid #e0e0e0;position: relative;vertical-align:middle; }
+.uploadWrap .imgs:hover{border-color: #00a1f1;}
+.uploadWrap .preview{width: 100%;height: 100%;text-align: center;}
+.uploadWrap .imgs img{max-width: 100%;max-height: 100%;vertical-align:middle;}
+.uploadWrap .imgs .loading{display: none;position: absolute;left: 0px;top: 0px;width: 100%;height: 100%;z-index: 9;
+    background-color:rgba(0,0,0,0.5);
+}
+.uploadWrap .imgs .loading .ing{display: inline-block;position: absolute;left: 50%;top: 50%;margin: -17px 0 0 -7px;}
+.uploadWrap .uploadBtn{position: absolute;left: 2px;top: 2px;width: 52px;height: 52px;z-index: 1;display: none;}
+.uploadWrap .filepicker{width: 52px;height: 52px;cursor: pointer;
+    filter:alpha(opacity=0);
+    -moz-opacity:0;
+    -khtml-opacity: 0;
+    opacity: 0;
+}
+.uploadWrap .addBtn{float: left;width: 58px;height: 58px;background: #fff;border: 1px solid #e0e0e0;position: relative;cursor: pointer;}
+.uploadWrap .addBtn .line1{width: 22px;height: 2px;background: #aaa;position: absolute;top: 28px;left: 18px;}
+.uploadWrap .addBtn .line2{width: 2px;height: 22px;background: #aaa;position: absolute;top: 18px;left: 28px;}
+.uploadWrap .bg{position: absolute;z-index: 2;left: 0px;bottom:0px;width: 58px;height: 18px;background: #000;
+    filter:alpha(opacity=50);
+    -moz-opacity:0.5;
+    -khtml-opacity: 0.5;
+    opacity: 0.5;}
+.uploadWrap .del{position: absolute;z-index: 3;left: 2px;bottom:2px;width: 52px;height: 18px;line-height: 15px;text-align: right;}
+.uploadWrap .delBar{cursor: pointer;position: relative;top: 3px;right: 5px;}
+.uploadWrap .operate{margin-top: 5px;height: 18px;line-height: 18px;}
+.uploadWrap .operate a{text-decoration: none;display: inline-block;font-size: 12px;}
+.uploadWrap .operate .dw{margin-right: 8px;}

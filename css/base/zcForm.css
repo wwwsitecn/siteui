@@ -65,6 +65,9 @@
     vertical-align: middle;
     cursor: pointer;
 }
+.zcCheckbox a{
+    color: #00a1f1;
+}
 .zcCheckbox .text{
     margin-left: 5px;
 }
@@ -254,18 +257,16 @@ input.error,
     border-color: #ff7373!important;
 }
 
-/* pwSafe : 密码强弱表 */
-.pwSafe{
+/* zcPwStrength : 密码强弱表 */
+.zcPwStrength{
     width:90px;
     height: 14px;
     line-height: 14px;
     vertical-align: middle;
-}
-.pwSafe p{
     display: none;
     white-space: nowrap;
 }
-.pwSafe span{
+.zcPwStrength span{
     float: left;
     width: 18px;
     height: 4px;
@@ -274,40 +275,40 @@ input.error,
     position: relative;
     top: 4px;
 }
-.pwSafe em{
+.zcPwStrength em{
     float:left;
     margin-left: 7px;
     font-size: 12px;
     vertical-align: middle;
     display: none;
 }
-.pwSafe .strengthLv1 .x1{
+.zcPwStrength.strengthLv1 .x1{
     background: #ff7372;
 }
-.pwSafe .strengthLv1 .r{
+.zcPwStrength.strengthLv1 .r{
     display: inline-block;
     color: #ff7372;
 }
-.pwSafe .strengthLv2 span{
+.zcPwStrength.strengthLv2 span{
     border-color: #ff972e;
 }
-.pwSafe .strengthLv2 .x1,
-.pwSafe .strengthLv2 .x2{
+.zcPwStrength.strengthLv2 .x1,
+.zcPwStrength.strengthLv2 .x2{
     background: #ff972e;
 }
-.pwSafe .strengthLv2 .z{
+.zcPwStrength.strengthLv2 .z{
     display: inline-block;
     color: #ff972e;
 }
-.pwSafe .strengthLv3 span{
+.zcPwStrength.strengthLv3 span{
     border-color: #62c71f;
 }
-.pwSafe .strengthLv3 .x1,
-.pwSafe .strengthLv3 .x2,
-.pwSafe .strengthLv3 .x3{
+.zcPwStrength.strengthLv3 .x1,
+.zcPwStrength.strengthLv3 .x2,
+.zcPwStrength.strengthLv3 .x3{
     background: #62c71f;
 }
-.pwSafe .strengthLv3 .q{
+.zcPwStrength.strengthLv3 .q{
     display: inline-block;
     color: #62c71f;
 }
@@ -371,4 +372,16 @@ input.error,
     border-left: 1px solid #e0e0e0;
     color: #666;
     cursor: pointer;
+}
+.zcSmsVeriCode .getCode .ing{
+    display: none;
+}
+.zcSmsVeriCode .getCode.zcLoading{
+    cursor: default;
+}
+.zcSmsVeriCode .getCode.zcLoading .text{
+    display: none;
+}
+.zcSmsVeriCode .getCode.zcLoading .ing{
+    display: inline-block;
 }

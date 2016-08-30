@@ -1,6 +1,6 @@
 ZC_GLOBAL={};
 ZC_GLOBAL.FUN = {};
-ZC_GLOBAL.FUN.zcGetData = function(params) {
+ZC_GLOBAL.FUN.getData = function(params) {
     var defaults = {
         url: "",
         contentType : "",
@@ -167,7 +167,7 @@ ZC_GLOBAL.FUN.getVerificationCode=function(param) {
 
     if (countdown == 0) {
         $this.removeClass("disabled");
-        $this.text("重新获取");
+        $this.find(".text").text("重新获取");
         params.callback($this);
         clearTimeout(window[$this.attr("data-timesid")]);
     } else {
@@ -438,7 +438,8 @@ ZC_GLOBAL.FUN.zcBubbleTip = {
         var params = {
             icon:"",
             msg:"",
-            coverShow: false
+            coverShow: false,
+            times:1000
         };
         $.extend(params, param);
         if (!params.msg) {
@@ -469,20 +470,20 @@ ZC_GLOBAL.FUN.zcBubbleTip = {
     },
     close: function (params) {
         setTimeout(function(){
-            $(".zcBubbleTip").remove();
+            $(".zcBubbleTip:not(.disabled)").remove();
         },params.times)
     }
 };
 
-ZC_GLOBAL.FUN.zcGetVeriCode = {
+ZC_GLOBAL.FUN.getVeriCode = {
     get:function(param){
         var params = {
             url:"",
             $target : ""
         };
         $.extend(params, param);
-
-        ZC_GLOBAL.FUN.zcGetData({
+        params.$target.addClass("zcLoading");
+        ZC_GLOBAL.FUN.getData({
             url: params.url,
             param:params.param,
             callBackSuccess: function (msg) {
@@ -490,10 +491,11 @@ ZC_GLOBAL.FUN.zcGetVeriCode = {
                     data = msg.data;
                 if (status == 0) {
                     params.$target.siblings("input").removeAttr("disabled");
-                    ZC_GLOBAL.FUN.zcGetVeriCode.timedown({$target:params.$target});
+                    ZC_GLOBAL.FUN.getVeriCode.timedown({$target:params.$target});
                 } else {
                     ZC_GLOBAL.FUN.zcBubbleTip.show({msg: "加载异常", icon: "icon-warnning-02", times: 500, coverShow: false});
                 };
+                params.$target.removeClass("zcLoading");
             }
         });
     },
@@ -507,12 +509,12 @@ ZC_GLOBAL.FUN.zcGetVeriCode = {
             $this = params.$target;
 
         if (countdown == 0) {
-            ZC_GLOBAL.FUN.zcGetVeriCode.clear($this,params.callbackEnd)
+            ZC_GLOBAL.FUN.getVeriCode.clear($this,params.callbackEnd)
         } else {
             if(!$this.attr("data-timesid")){
                 $this.attr("data-timesid",("td_" + new Date().getTime()) );
             }
-            $this.text(countdown + "秒");
+            $this.find(".text").text(countdown + "秒");
             if ($this.siblings(".smsVeriCode").attr("disabled") == "disabled") {
                 $this.siblings(".smsVeriCode").removeAttr("disabled");
             };
@@ -523,13 +525,81 @@ ZC_GLOBAL.FUN.zcGetVeriCode = {
                 callbackEnd: params.callbackEnd       
             };
             window[$this.attr("data-timesid")] = setTimeout(function () {
-                ZC_GLOBAL.FUN.zcGetVeriCode.timedown(param)
+                ZC_GLOBAL.FUN.getVeriCode.timedown(param)
             }, 1000);
         }
     },
     clear: function ($target) {
         $target.removeClass("disabled");
-        $target.text("重新获取");
+        $target.find(".text").text("重新获取");
         clearTimeout(window[$target.attr("data-timesid")]);
     }
+};
+/* zcCheckTel */
+ZC_GLOBAL.FUN.checkTel=function(tel) {
+    var reg = !!tel.match(/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/);
+    return reg;
+};
+/* zcCheckMail */
+ZC_GLOBAL.FUN.checkMail=function(mail) {
+    var reg = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
+    return reg.test(mail);
+}
+/* 获取地址栏参数值 */
+ZC_GLOBAL.FUN.getUrlParam=function(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null)return unescape(r[2]);
+    return null;
+}
+//判断值是否为空,空(false)不为空(true)
+ZC_GLOBAL.FUN.isNull = function(val) {
+    var exp = val;
+    return exp == null || typeof(exp) == "undefined" || $.trim(exp).length == 0 || $.trim(exp) == "";
+}
+// 密码强度
+ZC_GLOBAL.FUN.pwStrength = function(){
+    $("body").delegate(".zcPassword","keyup",function(){
+        var $this = $(this),
+            $strengthMap = $this.siblings(".zcPwStrength"),
+            val = $this.val();
+
+        var lv = 0, x = 0, y = 0, z = 0;
+        if (val.match(/[A-Za-z]/g)) {
+            x = 1;
+        }
+        if (val.match(/[0-9]/g)) {
+            y = 1;
+        }
+        if (val.match(/[^A-Za-z0-9]/g)) {
+            z = 1;
+        };
+        lv = x + y + z;
+        $this.attr("data-lv", lv);
+        if (val.length < 6) {
+            lv = 0;
+            $strengthMap.hide();
+        }
+
+        if (lv == 1) {
+            console.log(lv)
+            $strengthMap.hide();
+            return false;
+        }
+        if (val.length >= 6 && val.length <= 10 && lv == 2) {
+            $strengthMap.css("display","inline-block");
+            $strengthMap.removeAttr("class").addClass("zcPwStrength strengthLv1");
+            $this.removeClass("error").siblings(".verifyMsg").find(".msg").hide();
+        }
+        if (val.length > 10 && val.length <= 20 && lv == 2) {
+            $strengthMap.css("display","inline-block");
+            $strengthMap.removeAttr("class").addClass("zcPwStrength strengthLv2");
+            $this.removeClass("error").siblings(".verifyMsg").find(".msg").hide();
+        }
+        if (val.length >= 6 && val.length <= 20 && lv == 3) {
+            $strengthMap.css("display","inline-block");
+            $strengthMap.removeAttr("class").addClass("zcPwStrength strengthLv3");
+            $this.removeClass("error").siblings(".verifyMsg").find(".msg").hide();
+        }
+    });
 };

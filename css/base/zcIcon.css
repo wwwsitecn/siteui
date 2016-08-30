@@ -16,35 +16,35 @@
 	width: 10px;
 	height: 10px;
 	vertical-align: middle;
-	background: url('../images/icon.png') no-repeat;
+	background: url('../../images/icon.png') no-repeat;
 }
 .icon-bank{
 	display: inline-block;
 	width: 10px;
 	height: 10px;
 	vertical-align: middle;
-	background: url('../images/logo_bank.png') no-repeat;
+	background: url('../../images/logo_bank.png') no-repeat;
 }
 .medal{
 	display: inline-block;
 	width: 10px;
 	height: 10px;
 	vertical-align: middle;
-	background: url('../images/medal.png') no-repeat;	
+	background: url('../../images/medal.png') no-repeat;	
 }
 .levelTitle{
 	display: inline-block;
 	width: 10px;
 	height: 10px;
 	vertical-align: middle;
-	background: url('../images/levelTitle.png') no-repeat;	
+	background: url('../../images/levelTitle.png') no-repeat;	
 }
 .browser{
 	display: inline-block;
 	width: 10px;
 	height: 10px;
 	vertical-align: middle;
-	background: url('../images/browser.png') no-repeat;	
+	background: url('../../images/browser.png') no-repeat;	
 }
 /* icon */
 .icon-star-02 { background-position: -0px -0px; width: 115px; height: 18px; }
