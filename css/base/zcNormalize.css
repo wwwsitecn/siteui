@@ -114,6 +114,7 @@ a {
 }
 a:hover {
     color: #00a1f1;
+    text-decoration:underline;
 }
 a:focus {
     outline-style:none;
