@@ -1,0 +1,35 @@
+/* 页码 */
+.zcPager{text-align: right;padding: 20px 0;}
+.zcPager ul.pages {
+    display: inline-block;
+    border: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    padding: 0;
+}
+.zcPager ul.pages li {
+    float: left;
+    height: 26px;
+    line-height: 26px;
+    border: 1px solid #ededed;
+    padding: 0 10px;
+    text-decoration: none; /*border: 1px solid #dddddd;*/;
+    color: #999;
+    margin: 0 8px 0 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: #fff;
+    cursor: pointer;
+}
+.zcPager ul.pages li.pgNext {
+}
+.zcPager ul.pages li.pgEmpty {
+    display: none; /* border:1px solid #eee;color:#eee;*/
+}
+.zcPager ul.pages li:hover,
+.zcPager ul.pages li.pgCurrent {
+    color: #fff;
+    background-color: #00a2f1;
+    border-color: #00a2f1;
+}

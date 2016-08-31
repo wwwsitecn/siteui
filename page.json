@@ -20,6 +20,12 @@
       },
       {
         "url": "html/zcImgUpload.html"
+      },
+      {
+        "url": "html/zcTableList.html"
+      },
+      {
+        "url": "html/zcPager.html"
       }
     ]
 }

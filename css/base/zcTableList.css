@@ -1,0 +1,3 @@
+.zcTableList .dataList thead td{height: 40px;background: #fafafa;}
+.zcTableList .dataList tbody td{height: 69px;border-bottom: 1px solid #ededed;}
+.zcTableList .dataList .tdWrap{color: #999;text-align: center;}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>zcBubbleTip</title>
+	<link rel="stylesheet" type="text/css" href="../css/base/zcNormalize.css">
+	<link rel="stylesheet" type="text/css" href="../css/base/zcIcon.css">
+	<link rel="stylesheet" type="text/css" href="../css/base/zcTheme.css">
+	<link rel="stylesheet" type="text/css" href="../css/base/zcBubbleTip.css">
+</head>
+<body>
+	<div class="wrap">
+		<!-- 标题和解释 -->
+		<div class="title">
+			<h1>Table表格</h1>
+		</div>
+		<div class="box">
+			<!-- 实例 -->
+			<div class="example">
+				<h2>zcTableList</h2>
+				<p>描述：</p>
+				<p class="describe">
+					table 数据列表
+				</p>
+				<h3>DEMO</h3>
+				<div class="zcTableList">
+		            <table class="dataList" cellpadding="0" cellspacing="0">
+		                <thead>
+		                    <tr>
+		                        <td class="tdCode"><div class="tdWrap">交易单号</div></td>
+		                        <td class="tdTime"><div class="tdWrap">时间</div></td>
+		                        <td class="tdMoney"><div class="tdWrap">金额(元)</div></td>
+		                        <td class="tdMoneyType"><div class="tdWrap">类型</div></td>
+		                        <td class="tdInfo"><div class="tdWrap">信息</div></td>
+		                        <td class="tdStatus"><div class="tdWrap">状态</div></td>
+		                    </tr>
+		                </thead>
+		                <tbody><tr>    <td class="tdCode"><div class="tdWrap">p1a3dvr8qt</div></td>    <td class="tdTime"><div class="tdWrap">2016-01-11</div></td>    <td class="tdMoney"><div class="tdWrap">-2000</div></td>    <td class="tdMoneyType"><div class="tdWrap">支出</div></td>    <td class="tdInfo"><div class="tdWrap"><a class="quotaDeposit" target="_blank" href="../user_center/index.html#quota">额度押金</a></div></td>    <td class="tdStatus"><div class="tdWrap">成功</div></td></tr><tr>    <td class="tdCode"><div class="tdWrap">fvgjvwywvc</div></td>    <td class="tdTime"><div class="tdWrap">2016-01-08</div></td>    <td class="tdMoney"><div class="tdWrap">500</div></td>    <td class="tdMoneyType"><div class="tdWrap">收入</div></td>    <td class="tdInfo"><div class="tdWrap"><a class="medalExchange" target="_blank" href="../user_center/index.html#level">勋章兑换</a></div></td>    <td class="tdStatus"><div class="tdWrap">成功</div></td></tr><tr>    <td class="tdCode"><div class="tdWrap">w5dyn1731o</div></td>    <td class="tdTime"><div class="tdWrap">2016-01-08</div></td>    <td class="tdMoney"><div class="tdWrap">500</div></td>    <td class="tdMoneyType"><div class="tdWrap">收入</div></td>    <td class="tdInfo"><div class="tdWrap"><a class="medalExchange" target="_blank" href="../user_center/index.html#level">勋章兑换</a></div></td>    <td class="tdStatus"><div class="tdWrap">成功</div></td></tr><tr>    <td class="tdCode"><div class="tdWrap">pc8rt70pgt</div></td>    <td class="tdTime"><div class="tdWrap">2016-01-08</div></td>    <td class="tdMoney"><div class="tdWrap">500</div></td>    <td class="tdMoneyType"><div class="tdWrap">收入</div></td>    <td class="tdInfo"><div class="tdWrap"><a class="medalExchange" target="_blank" href="../user_center/index.html#level">勋章兑换</a></div></td>    <td class="tdStatus"><div class="tdWrap">成功</div></td></tr><tr>    <td class="tdCode"><div class="tdWrap">myxha9xl0w</div></td>    <td class="tdTime"><div class="tdWrap">2016-01-08</div></td>    <td class="tdMoney"><div class="tdWrap">500</div></td>    <td class="tdMoneyType"><div class="tdWrap">收入</div></td>    <td class="tdInfo"><div class="tdWrap"><a class="medalExchange" target="_blank" href="../user_center/index.html#level">勋章兑换</a></div></td>    <td class="tdStatus"><div class="tdWrap">成功</div></td></tr><tr>    <td class="tdCode"><div class="tdWrap">a392z8ks86</div></td>    <td class="tdTime"><div class="tdWrap">2016-01-08</div></td>    <td class="tdMoney"><div class="tdWrap">500</div></td>    <td class="tdMoneyType"><div class="tdWrap">收入</div></td>    <td class="tdInfo"><div class="tdWrap"><a class="medalExchange" target="_blank" href="../user_center/index.html#level">勋章兑换</a></div></td>    <td class="tdStatus"><div class="tdWrap">成功</div></td></tr><tr>    <td class="tdCode"><div class="tdWrap">111</div></td>    <td class="tdTime"><div class="tdWrap">2016-01-07</div></td>    <td class="tdMoney"><div class="tdWrap">100</div></td>    <td class="tdMoneyType"><div class="tdWrap">收入</div></td>    <td class="tdInfo"><div class="tdWrap">定单<span class="orderCode">143523451</span>基本佣金</div></td>    <td class="tdStatus"><div class="tdWrap">已到账</div></td></tr></tbody>
+		            </table>
+		        </div>
+			</div>
+			<!-- 源码 -->
+			<div class="sourceCode">
+				<pre id="demo">
+<div class="zcTableList">
+    <table class="dataList" cellpadding="0" cellspacing="0">
+        <thead>
+            <tr>
+                <td class="tdCode"><div class="tdWrap">交易单号</div></td>
+                <td class="tdTime"><div class="tdWrap">时间</div></td>
+                <td class="tdMoney"><div class="tdWrap">金额(元)</div></td>
+                <td class="tdMoneyType"><div class="tdWrap">类型</div></td>
+                <td class="tdInfo"><div class="tdWrap">信息</div></td>
+                <td class="tdStatus"><div class="tdWrap">状态</div></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="tdCode"><div class="tdWrap">p1a3dvr8qt</div></td>
+                <td class="tdTime"><div class="tdWrap">2016-01-11</div></td>
+                <td class="tdMoney"><div class="tdWrap">-2000</div></td>
+                <td class="tdMoneyType"><div class="tdWrap">支出</div></td>
+                <td class="tdInfo"><div class="tdWrap">额度押金</div></td>
+                <td class="tdStatus"><div class="tdWrap">成功</div></td>
+            </tr>
+        </tbody>
+    </table>
+</div></pre>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

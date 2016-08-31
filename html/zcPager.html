@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>zcBubbleTip</title>
+	<link rel="stylesheet" type="text/css" href="../css/base/zcNormalize.css">
+	<link rel="stylesheet" type="text/css" href="../css/base/zcIcon.css">
+	<link rel="stylesheet" type="text/css" href="../css/base/zcTheme.css">
+	<link rel="stylesheet" type="text/css" href="../css/base/zcBubbleTip.css">
+</head>
+<body>
+	<div class="wrap">
+		<!-- 标题和解释 -->
+		<div class="title">
+			<h1>分页</h1>
+		</div>
+		<div class="box">
+			<!-- 实例 -->
+			<div class="example">
+				<h2>zcPager</h2>
+				<p>描述：</p>
+				<p class="describe">
+					引用插件：jquery.pager.js（Version 1.0）
+				</p>
+				<h3>DEMO</h3>
+				<div id="pager" class="zcPager" style="text-align:left"><ul class="pages clear"><li class="pgNext">首页</li><li class="pgNext">上一页</li><li class="page-number">1</li><li class="page-number">2</li><li class="page-number">3</li><li class="page-number">4</li><li class="page-number">5</li><li class="page-number pgCurrent">6</li><li class="page-number">7</li><li class="page-number">8</li><li class="page-number">9</li><li class="pgNext">下一页</li><li class="pgNext">末页</li></ul></div>
+			</div>
+			<!-- 源码 -->
+			<div class="sourceCode">
+				<pre id="demo">
+<div id="pager" class="zcPager"></div>
+
+<!-- JS 初始化 -->
+$("#pager").pager({ pagenumber: 1, pagecount: 10, buttonClickCallback: pageClick });
+function pageClick(pageclickednumber,pagecount) {
+    // TODO : click event
+};
+</pre>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
