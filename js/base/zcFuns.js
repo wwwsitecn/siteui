@@ -27,18 +27,18 @@ ZC_GLOBAL.FUN.getData = function(params) {
         contentType: contentType,
         success: function (msg) {
             if (msg.status == -1) {
-                if (typeof defaults.relogin == "undefined") {//typeof relogin=="undefined" 返回登录页(默认为跳转登录页)
-                    ZC_GLOBAL.FUN.zcBubbleTip.show({
-                        msg: "登录超时",
-                        icon: "icon-warnning-02",
-                        coverShow: false,
-                        times: 1000
-                    });
+                if (!defaults.relogin) {
+                    // ZC_GLOBAL.FUN.zcBubbleTip.show({
+                    //     msg: "登录超时",
+                    //     icon: "icon-warnning-02",
+                    //     coverShow: false,
+                    //     times: 1000
+                    // });
                     setTimeout(function () {
-                        location.href = "../login/index.html?url=" + encodeURIComponent(window.location.href);
+                        location.href = "pageLogin.html?url=" + encodeURIComponent(window.location.href);
                     }, 1000);
                 } else {
-                    if (defaults.relogin && typeof defaults.relogin == "function") {
+                    if (typeof defaults.relogin == "function") {
                         defaults.relogin(msg);
                     }
                 }
@@ -84,110 +84,81 @@ ZC_GLOBAL.FUN.zcPayPassword=function(param){
         callbackEnd: function () {}        
     };
     $.extend(params, param);
-    $("body").delegate(params.targetStr+" .pw","keypress keyup click focusout",function(e){
+    
+    $("body").delegate(params.targetStr+" input","focus",function(e){    
         var $this = $(this),
-            $parent = $this.closest(".zcPayPassword"),
-            $input = $parent.find("input"),
-            val = $input.val(),
-            idx = $this.index(),
-            passWord = [];
-        var e = e || window.event;
-        e.preventDefault();
-        if(e.type == 'keypress'){
-            if ($(e.target).text().length == 0 && idx < 6 && val.length<6 && e.keyCode != 8 ) {
-                var k = String.fromCharCode(e.charCode);
-                if (/\d/.test(k)) {
-                    $this.text("●").addClass('true');
-                    if (idx != 5) {
-                        $parent.find(".pw").eq(idx).attr('contenteditable', false);
-                        $parent.find(".pw").eq(idx+1).attr('contenteditable', true);
-                        $parent.find(".pw").eq(idx+1).focus();
-                    }else{
-                        params.callbackEnd();
-                        //$parent.find(".pw").eq(idx).attr('contenteditable', false).focus();
-                    }
+            idx = $this.attr("data-idx"),
+            _thisi = $this.siblings("span.clear").find('i'),
+            $cur = $this.siblings("span.clear").find('.cur');
+        if($this.attr('data-busy') === '0'){ 
+            //在第一个密码框中添加光标样式
+            $cur.css('display','block');
+            _thisi.eq(idx).addClass("active");
+            $this.attr('data-busy','1');
+            $this.parent().removeClass("error");
+            params.callbackFocus();
+        };
+    });
+    //change时去除输入框的高亮，用户再次输入密码时需再次点击
+    $("body").delegate(params.targetStr+" input","change",function(e){
+        var $this = $(this),
+            idx = $this.attr("data-idx"),
+            _thisi = $this.siblings("span.clear").find('i'),
+            $cur = $this.siblings("span.clear").find('.cur');
+        $cur.css('display','none');
+        _thisi.eq(idx).removeClass("active");
+        $this.attr('data-busy','0');
+    });
+    $("body").delegate(params.targetStr+" input","focusout",function(e){
+        var $this = $(this),
+            idx = $this.attr("data-idx"),
+            _thisi = $this.siblings("span.clear").find('i'),
+            $cur = $this.siblings("span.clear").find('.cur');
+        $cur.css('display','none');
+        _thisi.eq(idx).removeClass("active");                  
+        $this.attr('data-busy','0');
+        params.callbackBlur();
+    });
 
-                    $input.val(val+k);
-                    console.log($input.val())
+    //使用keyup事件，绑定键盘上的数字按键和backspace按键
+    $("body").delegate(params.targetStr+" input","keyup",function(e){
+        var $this = $(this),
+            _thisi = $this.siblings("span.clear").find('i'),
+            $cur = $this.siblings("span.clear").find('.cur');
+        var  e = (e) ? e : window.event;    
+        //键盘上的数字键按下才可以输入
+        if(e.keyCode == 8 || (e.keyCode >= 48 && e.keyCode <= 57) || (e.keyCode >= 96 && e.keyCode <= 105)){
+            k = $this.val().length;//输入框里面的密码长度
+            l = 6;//6
+            console.log(k)
+            for(;l--;){
+                //输入到第几个密码框，第几个密码框就显示高亮和光标（在输入框内有2个数字密码，第三个密码框要显示高亮和光标，之前的显示黑点后面的显示空白，输入和删除都一样）
+                if(l === k){
+                    console.log(_thisi.eq(l).length)
+                    _thisi.eq(l).addClass("active");
+                    _thisi.eq(l).find('b').css('display','none');
+                    
+                }else{
+                    _thisi.eq(l).removeClass("active");
+                    _thisi.eq(l).find('b').css('display', l < k ? 'block' : 'none');
+                };             
+            
+                if(k === 6){
+                    $this.attr("data-idx",5);
+                    $this.blur();
+                    params.callbackEnd();
+                }else{
+                    $this.attr("data-idx",k);
+                    $cur.css('left',k*38+'px');
                 };
             };
-        }else if(e.type == 'keyup'){
-            if(e.keyCode == 8){
-                if (idx > 0 ){
-                    if($this.text().length){
-                        $parent.find(".pw").eq(idx).attr('contenteditable', true).addClass("true").text("").focus();
-                    }else{
-                        $parent.find(".pw").eq(idx).attr('contenteditable', false);
-                        $parent.find(".pw").eq(idx-1).attr('contenteditable', true).removeClass("true").text("").focus();
-                    }
-                }else if(idx==0){
-                    $parent.find(".pw").eq(idx).attr('contenteditable', true).removeClass("true").text("").focus();
-                }
-                $input.val(val.substring(0,val.length-1));
-                params.callbackDel();
-                
-            }else{
-                console.log( e.keyCode )
-                if ( !((e.keyCode >= 48 && e.keyCode <= 57) || 
-                    (e.keyCode >= 96 && e.keyCode <= 105) || 
-                    (e.keyCode >= 37 && e.keyCode <= 40) || 
-                    (e.keyCode >= 112 && e.keyCode <= 123) || 
-                    (e.keyCode >= 8 && e.keyCode <= 46) ||
-                    (e.keyCode >= 170 && e.keyCode <= 180) || 
-                    e.keyCode == 108 || e.keyCode == 144 || e.keyCode == 145 || e.keyCode == 92 ||e.keyCode == 93
-                ) ) {
-                    $this.text("");
-                    if(val.length==6){
-                        $input.val(val.substring(0,val.length-1))
-                    }
-                }else if(e.keyCode == 93 || e.keyCode == 92){
-                    e.preventDefault();
-                }
-            }
-        }else if(e.type == 'click'){
-            if(val.length==6){
-                $parent.find(".pw").eq(5).focus();
-            }
-            params.callbackFocus();
-        }else if(e.type == 'focusout'){
-            params.callbackBlur();
+            params.callbackDel();
+        }else{
+            //输入其他字符，直接清空
+            var _val = $this.val();
+            $this.val(_val.replace(/\D/g,''));            
         };
-        e.stopPropagation();
-    });
-};
-ZC_GLOBAL.FUN.getVerificationCode=function(param) {
-    var params = {
-        seconds: 60,
-        $target : "",
-        callbackEnd: function () {}        
-    };
-    $.extend(params, param);
-    var countdown = params.seconds,
-        $this = params.$target;
-
-    if (countdown == 0) {
-        $this.removeClass("disabled");
-        $this.find(".text").text("重新获取");
-        params.callback($this);
-        clearTimeout(window[$this.attr("data-timesid")]);
-    } else {
-        if(!$this.attr("data-timesid")){
-            $this.attr("data-timesid",("td_" + new Date().getTime()) );
-        }
-        $this.text(countdown + "秒");
-        if ($this.siblings(".smsVeriCode").attr("disabled") == "disabled") {
-            $this.siblings(".smsVeriCode").removeAttr("disabled");
-        };
-        countdown--;
-        var param = {
-            seconds: countdown,
-            $target : $this,
-            callbackEnd: params.callbackEnd       
-        };
-        window[$this.attr("data-timesid")] = setTimeout(function () {
-            ZC_GLOBAL.FUN.getVerificationCode(param)
-        }, 1000);
-    }
+    }); 
 };
 ZC_GLOBAL.FUN.zcTimeOutDown=function(param) {
     var params = {
@@ -479,6 +450,7 @@ ZC_GLOBAL.FUN.getVeriCode = {
     get:function(param){
         var params = {
             url:"",
+            param:"",
             $target : ""
         };
         $.extend(params, param);
@@ -490,6 +462,7 @@ ZC_GLOBAL.FUN.getVeriCode = {
                 var status = msg.status,
                     data = msg.data;
                 if (status == 0) {
+                    params.$target.addClass("disabled");
                     params.$target.siblings("input").removeAttr("disabled");
                     ZC_GLOBAL.FUN.getVeriCode.timedown({$target:params.$target});
                 } else {
@@ -558,12 +531,16 @@ ZC_GLOBAL.FUN.isNull = function(val) {
     return exp == null || typeof(exp) == "undefined" || $.trim(exp).length == 0 || $.trim(exp) == "";
 }
 // 密码强度
-ZC_GLOBAL.FUN.pwStrength = function(){
-    $("body").delegate(".zcPassword","keyup",function(){
-        var $this = $(this),
-            $strengthMap = $this.siblings(".zcPwStrength"),
-            val = $this.val();
-
+ZC_GLOBAL.FUN.pwStrength ={
+    init:function(){
+        $("body").delegate(".zcPassword","keyup",function(){
+            var $this = $(this),
+                $strengthMap = $this.siblings(".zcPwStrength"),
+                val = $this.val();
+            ZC_GLOBAL.FUN.pwStrength.check($this,$strengthMap,val)
+        });
+    },
+    check:function($this,$strengthMap,val){
         var lv = 0, x = 0, y = 0, z = 0;
         if (val.match(/[A-Za-z]/g)) {
             x = 1;
@@ -590,16 +567,783 @@ ZC_GLOBAL.FUN.pwStrength = function(){
             $strengthMap.css("display","inline-block");
             $strengthMap.removeAttr("class").addClass("zcPwStrength strengthLv1");
             $this.removeClass("error").siblings(".verifyMsg").find(".msg").hide();
+            return true;
         }
         if (val.length > 10 && val.length <= 20 && lv == 2) {
             $strengthMap.css("display","inline-block");
             $strengthMap.removeAttr("class").addClass("zcPwStrength strengthLv2");
             $this.removeClass("error").siblings(".verifyMsg").find(".msg").hide();
+            return true;
         }
         if (val.length >= 6 && val.length <= 20 && lv == 3) {
             $strengthMap.css("display","inline-block");
             $strengthMap.removeAttr("class").addClass("zcPwStrength strengthLv3");
             $this.removeClass("error").siblings(".verifyMsg").find(".msg").hide();
+            return true;
+        }
+    }
+};
+//汉字和字符 正则
+ZC_GLOBAL.FUN.regularChinese=function(tel) {
+    var reg =!tel.match(/[a-zA-Z0-9]+/);
+    return reg;
+};
+// 数字和字母正则
+ZC_GLOBAL.FUN.regularNumLet=function(tel) {
+    var reg =tel.match(/^[A-Za-z0-9]+$/);
+    return reg;
+};
+// 固定电话正则
+ZC_GLOBAL.FUN.regularFixedTel=function(tel) {
+    var reg =tel.match(/^0\d{2,3}-?\d{7,8}$/);
+    return reg;
+};
+// 匹配数字正则
+ZC_GLOBAL.FUN.regularNumber=function(str) {
+    var pattern = new RegExp(/\d+/);
+    var reg = pattern.test(str);
+    console.log(reg)
+    return reg;
+};
+// 匹配大写字母
+ZC_GLOBAL.FUN.regularCapital=function(str) {
+    var pattern = new RegExp(/^[A-Z]+$/);
+    var reg = pattern.test(str);
+    console.log(reg)
+    return reg;
+};
+// 查找字符
+ZC_GLOBAL.FUN.checkSpecialChar=function(str) {
+    var pattern = new RegExp("[`~!@#$^&*()_=|':;,\\[\\]\\+\\%\\-.<>/?~！￥……（）—{}【】‘；：”“。，、？]");
+    var reg = pattern.test(str);
+    console.log(reg)
+    return reg;
+};
+// 身份证校验
+ZC_GLOBAL.FUN.checkCardId=function(socialNo) {
+    if (socialNo == "") {
+        //alert("输入身份证号码不能为空!");
+        return (false);
+    }
+    //if (socialNo.length != 15 && socialNo.length != 18)
+    if (socialNo.length != 18) {
+        //alert("输入身份证号码格式不正确!");
+        return (false);
+    }
+
+    var area = {
+        11: "北京",
+        12: "天津",
+        13: "河北",
+        14: "山西",
+        15: "内蒙古",
+        21: "辽宁",
+        22: "吉林",
+        23: "黑龙江",
+        31: "上海",
+        32: "江苏",
+        33: "浙江",
+        34: "安徽",
+        35: "福建",
+        36: "江西",
+        37: "山东",
+        41: "河南",
+        42: "湖北",
+        43: "湖南",
+        44: "广东",
+        45: "广西",
+        46: "海南",
+        50: "重庆",
+        51: "四川",
+        52: "贵州",
+        53: "云南",
+        54: "西藏",
+        61: "陕西",
+        62: "甘肃",
+        63: "青海",
+        64: "宁夏",
+        65: "新疆",
+        71: "台湾",
+        81: "香港",
+        82: "澳门",
+        91: "国外"
+    };
+
+    if (area[parseInt(socialNo.substr(0, 2))] == null) {
+        //alert("身份证号码不正确(地区非法)!");
+        return (false);
+    }
+
+    if (socialNo.length == 15) {
+        pattern = /^\d{15}$/;
+        if (pattern.exec(socialNo) == null) {
+            //alert("15位身份证号码必须为数字！");
+            return (false);
+        }
+        var birth = parseInt("19" + socialNo.substr(6, 2));
+        var month = socialNo.substr(8, 2);
+        var day = parseInt(socialNo.substr(10, 2));
+        switch (month) {
+            case '01':
+            case '03':
+            case '05':
+            case '07':
+            case '08':
+            case '10':
+            case '12':
+                if (day > 31) {
+                    //alert('输入身份证号码不格式正确!');
+                    return false;
+                }
+                break;
+            case '04':
+            case '06':
+            case '09':
+            case '11':
+                if (day > 30) {
+                    //alert('输入身份证号码不格式正确!');
+                    return false;
+                }
+                break;
+            case '02':
+                if ((birth % 4 == 0 && birth % 100 != 0) || birth % 400 == 0) {
+                    if (day > 29) {
+                        //alert('输入身份证号码不格式正确!');
+                        return false;
+                    }
+                } else {
+                    if (day > 28) {
+                        //alert('输入身份证号码不格式正确!');
+                        return false;
+                    }
+                }
+                break;
+            default:
+                //alert('输入身份证号码不格式正确!');
+                return false;
+        }
+        var nowYear = new Date().getYear();
+        if (nowYear - parseInt(birth) < 15 || nowYear - parseInt(birth) > 100) {
+            //alert('输入身份证号码不格式正确!');
+            return false;
+        }
+        return (true);
+    }
+
+    var Wi = new Array(
+        7, 9, 10, 5, 8, 4, 2, 1, 6,
+        3, 7, 9, 10, 5, 8, 4, 2, 1
+    );
+    var lSum = 0;
+    var nNum = 0;
+    var nCheckSum = 0;
+
+    for (i = 0; i < 17; ++i) {
+
+
+        if (socialNo.charAt(i) < '0' || socialNo.charAt(i) > '9') {
+            //alert("输入身份证号码格式不正确!");
+            return (false);
+        }
+        else {
+            nNum = socialNo.charAt(i) - '0';
+        }
+        lSum += nNum * Wi[i];
+    }
+
+
+    if (socialNo.charAt(17) == 'X' || socialNo.charAt(17) == 'x') {
+        lSum += 10 * Wi[17];
+    }
+    else if (socialNo.charAt(17) < '0' || socialNo.charAt(17) > '9') {
+        //alert("输入身份证号码格式不正确!");
+        return (false);
+    }
+    else {
+        lSum += ( socialNo.charAt(17) - '0' ) * Wi[17];
+    }
+
+
+    if ((lSum % 11) == 1) {
+        return true;
+    }
+    else {
+        //alert("输入身份证号码格式不正确!");
+        return (false);
+    }
+
+};
+// 银行卡校验
+ZC_GLOBAL.FUN.checkBankNum=function(bankno) {
+    var lastNum = bankno.substr(bankno.length - 1, 1);//取出最后一位（与luhm进行比较）
+
+    var first15Num = bankno.substr(0, bankno.length - 1);//前15或18位
+    var newArr = [];
+    for (var i = first15Num.length - 1; i > -1; i--) {    //前15或18位倒序存进数组
+        newArr.push(first15Num.substr(i, 1));
+    }
+    var arrJiShu = [];  //奇数位*2的积 <9
+    var arrJiShu2 = []; //奇数位*2的积 >9
+
+    var arrOuShu = [];  //偶数位数组
+    for (var j = 0; j < newArr.length; j++) {
+        if ((j + 1) % 2 == 1) {//奇数位
+            if (parseInt(newArr[j]) * 2 < 9)
+                arrJiShu.push(parseInt(newArr[j]) * 2);
+            else
+                arrJiShu2.push(parseInt(newArr[j]) * 2);
+        }
+        else //偶数位
+            arrOuShu.push(newArr[j]);
+    }
+
+    var jishu_child1 = [];//奇数位*2 >9 的分割之后的数组个位数
+    var jishu_child2 = [];//奇数位*2 >9 的分割之后的数组十位数
+    for (var h = 0; h < arrJiShu2.length; h++) {
+        jishu_child1.push(parseInt(arrJiShu2[h]) % 10);
+        jishu_child2.push(parseInt(arrJiShu2[h]) / 10);
+    }
+
+    var sumJiShu = 0; //奇数位*2 < 9 的数组之和
+    var sumOuShu = 0; //偶数位数组之和
+    var sumJiShuChild1 = 0; //奇数位*2 >9 的分割之后的数组个位数之和
+    var sumJiShuChild2 = 0; //奇数位*2 >9 的分割之后的数组十位数之和
+    var sumTotal = 0;
+    for (var m = 0; m < arrJiShu.length; m++) {
+        sumJiShu = sumJiShu + parseInt(arrJiShu[m]);
+    }
+
+    for (var n = 0; n < arrOuShu.length; n++) {
+        sumOuShu = sumOuShu + parseInt(arrOuShu[n]);
+    }
+
+    for (var p = 0; p < jishu_child1.length; p++) {
+        sumJiShuChild1 = sumJiShuChild1 + parseInt(jishu_child1[p]);
+        sumJiShuChild2 = sumJiShuChild2 + parseInt(jishu_child2[p]);
+    }
+    //计算总和
+    sumTotal = parseInt(sumJiShu) + parseInt(sumOuShu) + parseInt(sumJiShuChild1) + parseInt(sumJiShuChild2);
+
+    //计算Luhm值
+    var k = parseInt(sumTotal) % 10 == 0 ? 10 : parseInt(sumTotal) % 10;
+    var luhm = 10 - k;
+
+    if (lastNum == luhm) {
+
+        return true;
+    }
+    else {
+
+        return false;
+    }
+
+}
+// 长度计算，中文一个字符长度，英文0.5个字符长度
+ZC_GLOBAL.FUN.cnlength = function (val) {
+    return val.replace(/[^\x00-\xff]/g, 'xx').length / 2.0
+};
+// pager
+ZC_GLOBAL.FUN.pagerFun=function(param){
+    var params = {
+        $target:$(".zcPager"),
+        $dataListBox:"",
+        currentPage:1,
+        totalPage:1,
+        totalItems:1,
+        numPage:20,
+        data: {},
+        getData:function(){},
+        callback: function () {}
+    };
+    // extend param
+    $.extend(params, param);
+
+    if(params.totalPage > 1){
+        if( params.currentPage==1 ){
+            params.$target.find(".prevPage").hide();
+            params.$target.find(".nextPage").show();
+        }else if( params.currentPage==params.totalPage ){
+            params.$target.find(".nextPage").hide();
+            params.$target.find(".prevPage").show();
+        }else if( params.currentPage >1 && params.currentPage<params.totalPage ){
+            params.$target.find(".prevPage,.nextPage,.goPage").show();
+        };
+        params.$target.find(".goPage").off("click").click(function(){
+            var $this = $(this);
+            //$this.find(".goPop").fadeIn(200);
+            $this.find(".goPop").show();
+        });
+        params.$target.find(".goBtn").off("click").click(function(e){
+            var val = params.$target.find("input[name='go']").val(),
+                totalPage = parseInt(params.$target.find(".totalPage").text());
+
+            if( val <= 0 || val > totalPage ){
+                alertInfo.show({msg: "页码错误", icon: "icon-warnning-02", times: 1000, coverShow: false});
+            }else{
+                params.$target.find("input[name='page']").val(val);
+                params.getData();
+                $(this).closest(".goPop").hide();
+            };
+            e.stopPropagation();
+        });
+        params.$target.find(".prevPage").off("click").click(function(e){
+            var val = parseInt(params.$target.find("input[name='page']").val());
+            params.$target.find("input[name='page']").val(val-1);
+            params.getData();
+            e.stopPropagation();
+        });
+        params.$target.find(".nextPage").off("click").click(function(e){
+            var val = parseInt(params.$target.find("input[name='page']").val());
+            params.$target.find("input[name='page']").val(val+1);
+            params.getData();
+            e.stopPropagation();
+        });
+        params.$target.find(".goPage").show();          
+    }else{
+        params.$target.find(".prevPage,.nextPage,.goPage").hide();
+    }
+    params.$target.find(".currentPage").text(params.currentPage);
+    params.$target.find(".totalPage").text(params.totalPage);
+    params.$target.find(".totalItems").text(params.totalItems);
+};
+
+ZC_GLOBAL.FUN.zcSelect=function(param){
+    $("body").delegate(".zcSelect:not(.disabled)","click",function(event){
+        //alert("sdfsdf")
+        var $this = $(this),
+            types = $(this).attr('data-type'),
+            $selected = $this.find('.selected');
+            thisWidth = $this.width(); /* radio:单选;checkbox:复选*/
+        if($selected.text() != ''){
+            $this.find('.selectLabel').html($selected.text()).removeClass('defaultColor');
+            $this.find('.inputSelect').val($selected.attr('selectid'));
+        }else{
+            //$this.find('.selectLabel').html('请选择').addClass('defaultColor');
+            $this.find('.inputSelect').val('');
+        };
+
+        var ul = $this.find('ul');
+        //alert(ul.is(":visible"))
+        if(!ul.is(":visible")){
+            $(".zcSelect ul").hide();
+            //console.log("show")
+            ul.show();
+        }else{
+            $(".zcSelect ul").hide();
+            //console.log("hide")
+            ul.hide();
+        };              
+        //event.stopPropagation();    //  阻止事件冒泡   
+    });
+    $("body").delegate('.zcSelect ul',"click",function(event){
+        event.stopPropagation();
+    });
+    $("body").delegate('.zcSelect li:not(.disabled)',"click",function(event){
+        var txt,value;
+        var $this = $(this),
+            $zcSelect = $this.closest(".zcSelect"),
+            types = $zcSelect.attr('data-type');
+        if(types == 'radio'){
+            txt = $this.text();
+            $this.addClass('selected').siblings('li').removeClass('selected');
+            $zcSelect.find('.selectLabel').html(txt);
+            value = $this.attr('selectid');
+            $zcSelect.find('.inputSelect').attr('value',value);
+            $zcSelect.find('ul').hide();
+            if(value != '0'){
+                $zcSelect.removeClass("error").find('.selectLabel').removeClass('defaultColor');
+            }else{
+                $zcSelect.find('.selectLabel').addClass('defaultColor');
+            }
+        }else{
+            var tLst = '',
+                valLst = '';
+            $this.removeClass('selected');
+            $zcSelect.find('input[type="checkbox"]:checked').each(function(){
+                txt = $this.parent().text();
+                value = $this.parents('li').attr('selectid');
+                $this.parents('li').addClass('selected');
+                tLst += txt + ',';
+                valLst += value +',';
+            });
+            $zcSelect.find('.selectLabel').html(tLst);
+            $zcSelect.find('.inputSelect').attr('value',valLst);
+            if(value != '0'){
+                $zcSelect.removeClass("error").find('.selectLabel').removeClass('defaultColor');
+            }else{
+                $zcSelect.find('.selectLabel').addClass('defaultColor');
+            }
+        };
+        event.stopPropagation();
+    });
+    $(document).click(function(e){
+        var $target = $(e.target);
+        if( !(($target.hasClass("zcSelect") || $target.closest(".zcSelect").length)) ){
+            $(".zcSelect ul").hide();
+        };
+        e.stopPropagation();
+    });
+};
+// 问题栏目 点击 预览大图
+ZC_GLOBAL.FUN.zcImgPreview=function(data, idx, appendTarget, callback) {
+    var len = data.length,
+        html = "";
+    if (!$("#zcImgPreview").length) {
+        html += '<div class="zcImgPreview" id="zcImgPreview">';
+        html += '            <div class="hd">';
+        html += '                <ul class="list">';
+        html += '                </ul>';
+        html += '                <span class="pageState"></span>';
+        html += '            </div> ';
+        html += '    <span class="close">×</span>';
+        html += '    <a href="javascript:;" class="btn prev"><</a>';
+        html += '    <div class="bd">';
+        html += '        <ul class="list">';
+        html += '        </ul>';
+        html += '    </div>';
+        html += '    <a href="javascript:;" class="btn next">></a>';
+        html += '</div>';
+
+        if (typeof appendTarget == "undefined") {
+            $("body").append(html);
+        } else {
+            $(appendTarget).eq(0).append(html);
+        };
+        if (callback && typeof callback == "function") {
+            callback();
+        };
+    };
+    html = "";
+    for (var i = 0; i < len; i++) {
+        html += '<li class="imgWrap"><span data-x="0" data-y="0" class="drag"><img draggable="false" src="' + data[i] + '" /><div class="imgcover"></div></span></li>';
+    };
+    $("#zcImgPreview").find(".bd .list").empty().html(html);
+    $("html,body").addClass("overflowHidden");
+    $("#zcImgPreview").find(".bd,.imgWrap").width($(window).width()).height($(window).height()).css("line-height", $(window).height() + "px");
+    $("#zcImgPreview").slide({
+        titCell: ".hd ul li",
+        mainCell: ".bd .list",
+        autoPage: false,
+        defaultIndex: idx,
+        effect: "left",
+        scroll: 1,
+        vis: 1,
+        pnLoop: false,
+        trigger: "click"
+    });
+    $("#zcImgPreview").fadeIn(200);
+    $("#zcImgPreview").find(".close").click(function () {
+        $("#zcImgPreview").fadeOut(200);
+        setTimeout(function () {
+            $("html,body").removeClass("overflowHidden");
+        }, 100);
+        setTimeout(function () {
+            $("#zcImgPreview").remove();
+        }, 200);
+    });
+    // 鼠标mousedown
+    $("#zcImgPreview").delegate(".drag","mousedown",function(e){
+        var $this = $(this),
+            dom= $this.parent().get(0);
+        $this.addClass("cursorMouseKeydown");
+        // $this.attr("data-move",false);
+        $this.attr("data-down",true);
+        $this.attr("data-x",e.clientX);
+        $this.attr("data-y",e.clientY);
+        $this.attr("data-top",dom.scrollTop);
+        $this.attr("data-left",dom.scrollLeft);
+        console.log("data-x="+e.clientX+"data-y="+e.clientY+"data-top="+dom.scrollTop+"data-left="+dom.scrollLeft)
+    });
+    // 鼠标mouseup
+    $("#zcImgPreview").delegate(".drag","mouseup",function(e){
+        var $this = $(this);
+        $this.removeClass("cursorMouseKeydown").attr("data-down",false);
+        e && e.preventDefault();
+    });
+    // 鼠标mousemove
+    $("#zcImgPreview").delegate(".drag","mousemove",function(e){
+        e && e.preventDefault();
+
+        var $this = $(this);
+        if( $this.attr("data-down")=="true" ){
+            var x = $this.attr("data-x") - e.clientX,
+                y = $this.attr("data-y") - e.clientY,
+                dom = $this.parent().get(0);
+            dom.scrollLeft = (parseInt($this.attr("data-left")) + x);
+            dom.scrollTop = (parseInt($this.attr("data-top")) + y);
         }
     });
+};
+// 文本/域字数限制
+ZC_GLOBAL.FUN.inputLimitFun=function(){
+    $("body").delegate(".zcInputLimit input,.zcInputLimit textarea", "focusin keyup", function (e) {
+        var $thisInput = $(this),
+            minsize =  $thisInput.attr("data-minsize"),
+            maxsize =  $thisInput.attr("data-maxsize"),
+            maxsizecan = $thisInput.attr("data-maxsizecan"),
+            $output = $thisInput.siblings(".outputInfo");
+        
+        if( e.type == "focusin"){
+            var len = $thisInput.val().length;
+            $output.find("i").text(len);
+            if( len < minsize || len > maxsize ){
+                $output.addClass("error");
+            };
+        }else if(e.type == "keyup" ){
+            var val = $thisInput.val(),
+                len = val.length;
+            // 可以超出
+            if( typeof maxsizecan!="undefined" && maxsizecan=="true" ){
+                if( len < minsize || len > maxsize ){
+                    $output.addClass("error");
+                }else{
+                    $output.removeClass("error");
+                }
+            }else{
+                if( len < minsize ){
+                    $output.addClass("error");
+                }else if( len >= minsize ){
+                    $output.removeClass("error");
+                    if( len > maxsize ){
+                        var trimmedtext=val.substring(0, maxsize);
+                        $thisInput.val(trimmedtext);
+                    }
+                };
+            };
+            $output.find("i").text($thisInput.val().length);
+        };
+    });
+};
+// 获取json 对象 长度
+ZC_GLOBAL.FUN.getJsonLen=function(jsonObj) {
+    var Length = 0;
+    for (var item in jsonObj) {
+        Length++;
+    }
+    return Length;
+};
+// 日期选择
+ZC_GLOBAL.FUN.zcDateSelect={
+    // 属性设置
+    option:function(param){
+        var params = {};
+        $.extend(params, param);
+        // 最大年
+        if(typeof params.maxY!="undefined"){
+            $(params.target).attr("data-maxy",params.maxY);
+        }else{
+            $(params.target).removeAttr("data-maxy");
+        };
+        // 最大月
+        if(typeof params.maxM!="undefined"){
+            $(params.target).attr("data-maxm",params.maxM);
+        }else{
+            $(params.target).removeAttr("data-maxm");
+        };
+        // 最小年
+        if(typeof params.minY!="undefined"){
+            $(params.target).attr("data-miny",params.minY);
+        }else{
+            $(params.target).removeAttr("data-miny");
+        };
+        // 最小月
+        if(typeof params.minM!="undefined"){
+            $(params.target).attr("data-minm",params.minM);
+        }else{
+            $(params.target).removeAttr("data-minm");
+        }; 
+    },
+    show:function(param){
+        var params = {
+                onClose: function(){}
+            };
+        // extend param
+        $.extend(params, param);
+        // 目标点击事件
+        $(params.target).click(function(event){
+            var $this = $(this),
+                x =  $this.offset().left,
+                y =  $this.offset().top,
+                w = $this.outerWidth(),
+                h = $this.outerHeight(),
+                dataY = $this.attr("data-y"),
+                dataM = $this.attr("data-m"),
+                dataMaxY = $this.attr("data-maxy"),
+                dataMaxM = $this.attr("data-maxm"),
+                dataMinY = $this.attr("data-miny"),
+                dataMinM = $this.attr("data-minm"),
+                html = "";
+            if(!$this.attr("data-timesid")){
+                $(".zcDateSelect").remove();
+                $this.attr("data-timesid",("td_" + new Date().getTime()) );
+            }else{
+                if( $(".zcDateSelect").length && $(".zcDateSelect").attr("id")!=$this.attr("data-timesid") ){
+                    $(".zcDateSelect").remove();
+                };
+            };
+            html+='<div id="'+$this.attr("data-timesid")+'" data-y="'+dataY+'" data-m="'+dataM+'" class="zcDateSelect" style="left:'+x+'px;top:'+(y+h)+'px">';
+            html+='    <div class="year">';
+            html+='        <div class="yearWrap">';
+            // 存在 最大日期 || 最小日期
+            if(typeof dataMaxY!="undefined" || typeof dataMinY!="undefined"){
+                if( typeof dataMaxY!="undefined" ){
+                    for( var i=1980; i<=parseInt(dataMaxY); i++ ){
+                        // 已选年份
+                        if( typeof dataY!="undefined" ){
+                            //console.log($(params.target).attr("data-y")+"---"+i)
+                            if(dataY==i){
+                                html+='            <span class="on" data-y="'+i+'">'+i+'</span>';
+                            }else{
+                                html+='            <span data-y="'+i+'">'+i+'</span>';
+                            };
+                        }else{
+                            html+='            <span data-y="'+i+'">'+i+'</span>';
+                        };
+                    };
+                };
+                if( typeof dataMinY!="undefined" ){
+                    for( var i=parseInt(dataMinY); i<=(new Date).getFullYear(); i++ ){
+                        // 已选年份
+                        if( typeof dataY!="undefined" ){
+                            //console.log($(params.target).attr("data-y")+"---"+i)
+                            if(dataY==i){
+                                html+='            <span class="on" data-y="'+i+'">'+i+'</span>';
+                            }else{
+                                html+='            <span data-y="'+i+'">'+i+'</span>';
+                            };
+                        }else{
+                            html+='            <span data-y="'+i+'">'+i+'</span>';
+                        };
+                    };
+                };            
+            }else{// 不存在 日期限制
+                for( var i=1980; i<=(new Date).getFullYear(); i++ ){
+                    // 已选年份
+                    if(dataY==i){
+                        html+='            <span class="on" data-y="'+i+'">'+i+'</span>';
+                    }else{
+                        html+='            <span data-y="'+i+'">'+i+'</span>';
+                    };
+                };
+            };
+            
+            html+='        </div>';
+            html+='    </div>';
+            html+='    <div class="month clear">';
+            html+='        <span data-m="01">1月</span>';
+            html+='        <span data-m="02">2月</span>';
+            html+='        <span data-m="03">3月</span>';
+            html+='        <span data-m="04">4月</span>';
+            html+='        <span data-m="05">5月</span>';
+            html+='        <span data-m="06">6月</span>';
+            html+='        <span data-m="07">7月</span>';
+            html+='        <span data-m="08">8月</span>';
+            html+='        <span data-m="09">9月</span>';
+            html+='        <span data-m="10">10月</span>';
+            html+='        <span data-m="11">11月</span>';
+            html+='        <span data-m="12">12月</span>';
+            html+='    </div>';
+            html+='    <div class="tool clear">';
+            html+='        <span class="today">今天</span>';
+            html+='        <span class="close">关闭</span>';
+            html+='    </div>';
+            html+='</div>';
+
+            $("body").append(html);
+
+            var $datePop = $("[id='"+$this.attr("data-timesid")+"']"),
+                $target = $("[data-timesid='"+$datePop.attr("id")+"']");
+            if( typeof $target.attr("data-maxy")!="undefined" ){
+                if( typeof dataY !="undefined" && dataY == $target.attr("data-maxy") ){
+                    for( var i=(parseInt($target.attr("data-maxm"))+1);i<=12;i++  ){
+                        $datePop.find("[data-m='"+(i.toString().length==1?("0"+i.toString()):i)+"']").addClass("disabled");
+                    };
+                }else{
+                    $datePop.find(".month span").removeClass("disabled");
+                };
+            };
+            if( typeof $target.attr("data-miny")!="undefined" ){
+                if( (typeof dataY !="undefined" && dataY == $target.attr("data-miny")) || ($target.attr("data-miny")==(new Date).getFullYear()) ){
+                    for( var i=1;i<parseInt($target.attr("data-minm"));i++  ){
+                        $datePop.find("[data-m='"+(i.toString().length==1?("0"+i.toString()):i)+"']").addClass("disabled");
+                    };
+                }else{
+                    $datePop.find(".month span").removeClass("disabled");
+                };
+            };
+
+            // 年份点击事件
+            $datePop.find(".year span").click(function(event){
+                var $this = $(this),
+                    $parent = $this.closest(".zcDateSelect"),
+                    year = $parent.attr("data-y"),
+                    month = $parent.attr("data-m"),
+                    $target = $("[data-timesid='"+$parent.attr("id")+"']");
+
+                if( typeof $target.attr("data-maxy")!="undefined" ){
+                    if( $this.attr("data-y") == $target.attr("data-maxy") ){
+                        for( var i=(parseInt($target.attr("data-maxm"))+1);i<=12;i++  ){
+                            $datePop.find("[data-m='"+(i.toString().length==1?("0"+i.toString()):i)+"']").addClass("disabled");
+                        };
+                    }else{
+                        $datePop.find(".month span").removeClass("disabled");
+                    };
+                };
+                if( typeof $target.attr("data-miny")!="undefined" ){
+                    if( $this.attr("data-y") == $target.attr("data-miny") ){
+                        for( var i=1;i<parseInt($target.attr("data-minm"));i++  ){
+                            $datePop.find("[data-m='"+(i.toString().length==1?("0"+i.toString()):i)+"']").addClass("disabled");
+                        };
+                    }else{
+                        $datePop.find(".month span").removeClass("disabled");
+                    };
+                };
+                $this.addClass("on").siblings().removeClass("on");
+                $parent.attr("data-y",$this.attr("data-y"));
+                event.stopPropagation();
+            });
+            // 月份点击事件
+            $datePop.find(".month span").click(function(event){
+                var $this = $(this),
+                    $parent = $this.closest(".zcDateSelect"),
+                    year = $parent.attr("data-y"),
+                    month = $parent.attr("data-m");
+                if(!$this.hasClass("disabled")){
+                    $this.addClass("on").siblings().removeClass("on");
+                    $parent.attr("data-m",$this.attr("data-m"));
+                    if( year!="undefined" ){
+                        $("input[data-timesid='"+$parent.attr("id")+"']").attr({"data-y":$parent.attr("data-y"),"data-m":$parent.attr("data-m")}).val( $parent.attr("data-y")+"-"+$parent.attr("data-m") );
+                        params.onClose({dataY:$parent.attr("data-y"),dataM:$parent.attr("data-m")});
+                        $(".zcDateSelect").remove();
+                    };
+                };
+                event.stopPropagation();
+            });
+            // 今天点击事件
+            $datePop.find(".today").click(function(event){
+                var $this = $(this),
+                    $parent = $this.closest(".zcDateSelect"),
+                    date=new Date;
+                $("input[data-timesid='"+$parent.attr("id")+"']").attr({"data-y":date.getFullYear(),"data-m":(date.getMonth()+1)}).val( date.getFullYear()+"-"+((date.getMonth()+1).toString().length==1?("0"+(date.getMonth()+1)):(date.getMonth()+1)) );
+                params.onClose({dataY:date.getFullYear(),dataM:(date.getMonth()+1)});
+                $(".zcDateSelect").remove();
+                event.stopPropagation();
+            });
+            // 关闭点击事件
+            $datePop.find(".close").click(function(event){
+                $(".zcDateSelect").remove();
+                event.stopPropagation();
+            });
+            $("body").click(function(e){
+                if( $(".zcDateSelect").length ){
+                    if( !$(e.target).closest(".zcDateSelect").length ){
+                        if( typeof $(e.target).attr("data-timesid")=="undefined" || $(".zcDateSelect").attr("id")!=$(e.target).attr("data-timesid") ){
+                            $(".zcDateSelect").remove();
+                        };
+                    };
+                };
+            });
+            event.stopPropagation();
+        });
+    }
 };

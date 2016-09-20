@@ -5,7 +5,44 @@
     display: inline-block;
     vertical-align: middle;
 }
+.noDataInfo{background:url(../../images/default/default-noData.png) no-repeat 0 0;}
+
+.orderList .code{background:#f9f9f9 url(../../images/orderList/bg_code.png) no-repeat 14px 50%;}
 
 .pageLogin,
-.pageRegister{background:#000 url(../../images/zc_login_bg.jpg) 50% 50% no-repeat;}
+.pageRegister,
+.pagefindpwd{background:#000 url(../../images/zc_login_bg.jpg) 50% 50% no-repeat;}
 .pageLogin .loginForm .slogan{background: url(../../images/zc_slogan.png) 50% 0 no-repeat;}
+
+.pageOfficeIndex .box02 .desk{
+	background: url(../../images/bg_desk.png) 50% 50% no-repeat;
+}
+.pageOfficeIndex .box02 .left{
+	background:#fff url(../../images/bg_bulb01.png) 94% 100% no-repeat;
+}
+.pageOfficeIndex .box02 .right{
+	background:#fff url(../../images/bg_bulb02.png) 100% 100% no-repeat;
+}
+
+.zcImgPreview .imgWrap .drag{display: inline-block;line-height: 0px;position: relative;background: #000;vertical-align: middle;cursor: url(../../images/cursor_mouse1.gif),auto;}
+.zcImgPreview .imgWrap .drag.cursorMouseKeydown{cursor: url(../../images/cursor_mouse2.gif),auto;}
+
+.pageWorkIndex .leftMenu .logo a{
+	background:url(../../images/zc_logo_05.png) 0 0 no-repeat;
+}
+.pageWorkIndex .leftMenu .desk{
+	background: url(../../images/bg_desk_02.png) 50% 50% no-repeat;
+}
+.contOrder .schedule{
+	background: url(../../images/bg_schedule.png) 50% 50% no-repeat;
+}
+.contOrder .schedule .center{
+	background: url(../../images/bg_schedule_right.png) 0 0 repeat-y;
+}
+.contOrder div.statusUnfinished span,
+.contOrder .statusUnfinished a{background-image:url(../../images/icon_plan_status.png)!important; background-repeat:no-repeat!important;background-position:50% -39px!important;}
+.contOrder div.statusFinished span,
+.contOrder .statusFinished a{background-image:url(../../images/icon_plan_status.png)!important; background-repeat:no-repeat!important;background-position:50% 0px!important;}
+.contOrder div.statusEscape span,
+.contOrder .statusEscape a{background-image:url(../../images/icon_plan_status.png)!important;background-repeat:no-repeat!important;background-position: 50% -78px!important;}
+.contOrder .ui-datepicker-today{background-image: url(../../images/ba_today.png)!important;background-repeat: no-repeat;background-position: 0px 0px;}

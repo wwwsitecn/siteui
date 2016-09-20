@@ -1,17 +1,17 @@
 /* 预览大图 */
-.picLibrary{display:none;width: 100%;height: 100%;background: #000;position: fixed;left: 0px;top: 0px;z-index: 9999;text-align: center;}
-.picLibrary .close{position: absolute;right:20px;top:0px;z-index: 2;width: 65px;height: 65px;line-height: 65px;background: rgba(0,0,0,0.5);color: #fff;display: block;cursor: pointer;font-size: 50px;font-family: "宋体"}
-.picLibrary .close:hover{background: #01a1f1;}
-.picLibrary .hd{float: right;line-height: 30px;}
-.picLibrary .btn{display: block;width: 90px;height: 90px;line-height: 90px;text-align:center;text-decoration: none;font-family: "宋体";font-size: 70px;color:#fff;position: absolute;top: 50%;z-index: 2;margin-top: -45px;background: rgba(0,0,0,0.2);-webkit-border-radius: 100%;-moz-border-radius: 100%;border-radius: 100%;}
-.picLibrary .prev{left:20px;}
-.picLibrary .next{right: 20px;}
-.picLibrary .hover{display: none;}
-.picLibrary a:hover{background: #01a1f1;}
-.picLibrary .hd ul,
-.picLibrary .hd .pageState{display: none;}
-.picLibrary .imgWrap{overflow: auto;vertical-align: middle;text-align: center;}
-.picLibrary .btn.prevStop, .picLibrary .btn.nextStop{display: none!important;}
-.picLibrary .imgWrap .imgcover{width: 100%;height: 100%;position: absolute;z-index: 1;left: 0px;top: 0px;}
-.picLibrary .imgWrap .drag{display: inline-block;line-height: 0px;position: relative;background: #000;vertical-align: middle;cursor: url(../images/cursor_mouse1.gif),auto;}
-.picLibrary .imgWrap .drag.cursorMouseKeydown{cursor: url(../images/cursor_mouse2.gif),auto;}
+.zcImgPreview{display:none;width: 100%;height: 100%;background: #000;position: fixed;left: 0px;top: 0px;z-index: 9999;text-align: center;}
+.zcImgPreview .close{position: absolute;right:20px;top:0px;z-index: 2;width: 65px;height: 65px;line-height: 65px;background: rgba(0,0,0,0.5);color: #fff;display: block;cursor: pointer;font-size: 50px;font-family: "宋体"}
+.zcImgPreview .close:hover{background: #01a1f1;}
+.zcImgPreview .hd{float: right;line-height: 30px;}
+.zcImgPreview .btn{display: block;width: 90px;height: 90px;line-height: 90px;text-align:center;text-decoration: none;font-family: "宋体";font-size: 70px;color:#fff;position: absolute;top: 50%;z-index: 2;margin-top: -45px;background: rgba(0,0,0,0.2);-webkit-border-radius: 100%;-moz-border-radius: 100%;border-radius: 100%;}
+.zcImgPreview .prev{left:20px;}
+.zcImgPreview .next{right: 20px;}
+.zcImgPreview .hover{display: none;}
+.zcImgPreview a:hover{background: #01a1f1;}
+.zcImgPreview .hd ul,
+.zcImgPreview .hd .pageState{display: none;}
+.zcImgPreview .imgWrap{overflow: auto;vertical-align: middle;text-align: center;}
+.zcImgPreview .btn.prevStop, .picLibrary .btn.nextStop{display: none!important;}
+.zcImgPreview .imgWrap .imgcover{width: 100%;height: 100%;position: absolute;z-index: 1;left: 0px;top: 0px;}
+.zcImgPreview .imgWrap .drag{display: inline-block;line-height: 0px;position: relative;background: #000;vertical-align: middle;cursor: url(../images/cursor_mouse1.gif),auto;}
+.zcImgPreview .imgWrap .drag.cursorMouseKeydown{cursor: url(../images/cursor_mouse2.gif),auto;}

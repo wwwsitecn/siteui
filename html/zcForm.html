@@ -91,7 +91,7 @@
 										<span class="x1"></span><span class="x2"></span><span class="x3"></span><em class="r">弱</em><em class="z">中</em><em class="q">强</em>
 									</div>
 					                <span class="verifyMsg">
-					                    <i class="msg msgError">错误信息</i>
+					                    <i class="msg msgError"></i>
 					                </span>
 								</span>
 							</td>
@@ -100,17 +100,18 @@
 							<td class="n" valign="top"><span>支付密码：</span></td>
 							<td class="v" valign="top">
 								<span class="eleWrap">
-									<span class="zcPayPassword">
-										<input type="hidden" name="" value="" placeholder="" />
-										<span class="clear">
-											<i onpaste="return false" ondragenter="return false" oncontextmenu="return false;" contenteditable="true" class="pw"></i>
-											<i onpaste="return false" ondragenter="return false" oncontextmenu="return false;" contenteditable="false" class="pw"></i>
-											<i onpaste="return false" ondragenter="return false" oncontextmenu="return false;" contenteditable="false" class="pw"></i>
-											<i onpaste="return false" ondragenter="return false" oncontextmenu="return false;" contenteditable="false" class="pw"></i>
-											<i onpaste="return false" ondragenter="return false" oncontextmenu="return false;" contenteditable="false" class="pw"></i>
-											<i onpaste="return false" ondragenter="return false" oncontextmenu="return false;" contenteditable="false" class="pw"></i>
-										</span>
-									</span>
+                                    <span class="zcPayPassword" id="paypassword">
+                                        <input type="password" autocomplete="off" required="required" value="" name="payPassword" tabindex="" maxlength="6" minlength="6" data-idx="0" data-busy="0">
+                                        <span class="clear">
+                                            <i class="pw"><b></b></i>
+                                            <i class="pw"><b></b></i>
+                                            <i class="pw"><b></b></i>
+                                            <i class="pw"><b></b></i>
+                                            <i class="pw"><b></b></i>
+                                            <i class="pw"><b></b></i>
+                                            <span class="cur"></span>
+                                        </span>
+                                    </span>
 					                <span class="verifyMsg">
 					                    <i class="msg msgError"></i>
 					                </span>
@@ -136,6 +137,16 @@
 								</span>
 							</td>
 						</tr>
+                        <tr>
+                            <td class="n" valign="top"><span>在职时间：</span></td>
+                            <td class="v" valign="top">
+                                <span class="eleWrap">
+                                    <input type="" class="zcInput" id="timeStart">
+                                    -
+                                    <input type="" class="zcInput" id="timeEnd">
+                                </span>
+                            </td>
+                        </tr>
 						<tr>
 							<td class="n" valign="top"></td>
 							<td class="v" valign="top">
@@ -152,118 +163,11 @@
 <table class="zcFormTable">
     <tbody>
         <tr>
-            <td class="n" valign="top"><span>手机号：</span></td>
+            <td class="n" valign="top"><span>表单标题：</span></td>
             <td class="v" valign="top">
                 <span class="eleWrap">
-                    <input type="tel" class="zcInput" placeholder="placeholder文案" />
-                    <span class="verifyMsg">
-                        <i class="msg msgOk">正确信息</i>
-                    </span>
+                    表单实体内容
                 </span>
-            </td>
-        </tr>
-        <tr>
-            <td class="n" valign="top"><span>email：</span></td>
-            <td class="v" valign="top">
-                <span class="eleWrap">
-                    <input type="tel" class="zcInput" placeholder="placeholder文案" />
-                    <span class="verifyMsg">
-                        <i class="msg msgOk"></i>
-                    </span>
-                </span>
-            </td>
-        </tr>
-        <tr>
-            <td class="n" valign="top"><span>性别：</span></td>
-            <td class="v" valign="top">
-                <span class="eleWrap">
-                    <label class="zcRadio"><input type="radio" name="sex"/><span class='text'>男</span></label>
-                    <label class="zcRadio"><input type="radio" name="sex"/><span class='text'>女</span></label>
-                    <span class="verifyMsg">
-                        <i class="msg msgOk"></i>
-                    </span>
-                </span>
-            </td>
-        </tr>
-        <tr>
-            <td class="n" valign="top"><span>爱好：</span></td>
-            <td class="v" valign="top">
-                <span class="eleWrap">
-                    <label class="zcCheckbox"><input type="checkbox" name="group"/><span class='text'>看书</span></label>
-                    <label class="zcCheckbox"><input type="checkbox" name="group"/><span class='text'>游戏</span></label>
-                    <label class="zcCheckbox"><input type="checkbox" name="group"/><span class='text'>吃饭</span></label>
-                    <label class="zcCheckbox"><input type="checkbox" name="group"/><span class='text'>睡觉</span></label>
-                    <span class="verifyMsg">
-                        <i class="msg msgOk"></i>
-                    </span>
-                </span>
-            </td>
-        </tr>
-        <tr>
-            <td class="n" valign="top"><span>用户名：</span></td>
-            <td class="v" valign="top">
-                <span class="eleWrap">
-                    <input type="text" class="zcInput error" placeholder="placeholder文案" />
-                    <span class="verifyMsg">
-                        <i class="msg msgError">错误信息</i>
-                    </span>
-                </span>
-            </td>
-        </tr>
-        <tr>
-            <td class="n" valign="top"><span>密码：</span></td>
-            <td class="v" valign="top">
-                <span class="eleWrap">
-                    <input type="password" class="zcInput zcPassword" placeholder="placeholder文案" />
-                    <div class="zcPwStrength">
-                        <span class="x1"></span><span class="x2"></span><span class="x3"></span><em class="r">弱</em><em class="z">中</em><em class="q">强</em>
-                    </div>
-                    <span class="verifyMsg">
-                        <i class="msg msgError">错误信息</i>
-                    </span>
-                </span>
-            </td>
-        </tr>
-        <tr>
-            <td class="n" valign="top"><span>支付密码：</span></td>
-            <td class="v" valign="top">
-                <span class="eleWrap">
-                    <span class="zcPayPassword">
-                        <input type="hidden" name="" value="" placeholder="" />
-                        <span class="clear">
-                            <i onpaste="return false" ondragenter="return false" oncontextmenu="return false;" contenteditable="true" class="pw"></i>
-                            <i onpaste="return false" ondragenter="return false" oncontextmenu="return false;" contenteditable="false" class="pw"></i>
-                            <i onpaste="return false" ondragenter="return false" oncontextmenu="return false;" contenteditable="false" class="pw"></i>
-                            <i onpaste="return false" ondragenter="return false" oncontextmenu="return false;" contenteditable="false" class="pw"></i>
-                            <i onpaste="return false" ondragenter="return false" oncontextmenu="return false;" contenteditable="false" class="pw"></i>
-                            <i onpaste="return false" ondragenter="return false" oncontextmenu="return false;" contenteditable="false" class="pw"></i>
-                        </span>
-                    </span>
-                    <span class="verifyMsg">
-                        <i class="msg msgError"></i>
-                    </span>
-                </span>
-            </td>
-        </tr>
-        <tr>
-            <td class="n" valign="top"><span>获取校验码：</span></td>
-            <td class="v" valign="top">
-                <span class="eleWrap">
-                    <div class="zcSmsVeriCode">
-                        <input type="text" placeholder="短信校验码" maxlength="4" value="" name="smsVeriCode" disabled="disabled" class="zcInput">
-                        <span class="getCode"><em class="text">获取校验码</em><em class="ing"></em></span>
-                        <span class="verifyMsg">
-                            <i class="msg msgError"></i>
-                        </span>
-                        <span class="zcTips">4位号码<span class="arrow"><b>◆</b><i>◆</i></span></span>
-                    </div>　　　　　　　
-                </span>
-            </td>
-        </tr>
-        <tr>
-            <td class="n" valign="top"></td>
-            <td class="v" valign="top">
-                <a href="javascript:;" class="zcBtn btnBlue">提交</a>
             </td>
         </tr>
     </tbody>
@@ -316,6 +220,33 @@
 <!-- 文本域 -->
 <textarea class="zcTextarea" placeholder="placeholder文案" ></textarea></pre>
 			</div>
+            <!-- 实例 -->
+            <div class="example">
+                <h2>TEXTAREA 限制字数</h2>
+                <p>描述：</p>
+                <p class="describe">
+                    限制字数/字数计数器
+                </p>
+                <h3>DEMO</h3>
+                <div class="zcInputLimit">
+                    <textarea data-minsize="2" data-maxsize="150" data-maxsizecan="true" name="content" class="zcTextarea "></textarea>
+                    <p class="outputInfo"><i>0</i>/150</p>
+                </div>
+            </div>
+            <!-- 源码 -->
+            <div class="sourceCode">
+                <pre>
+<!-- 文本域 -->
+<div class="zcInputLimit">
+    <!-- data-minsize(最小字数2)，data-maxsize(最大字数150)，data-maxsizecan(可以超出最大字数"true:不截取","false":截取) -->
+    <textarea data-minsize="2" data-maxsize="150" data-maxsizecan="true" name="content" class="zcTextarea "></textarea>
+    <p class="outputInfo"><i>0</i>/150</p>
+</div>
+
+<!-- JS 代码 -->
+ZC_GLOBAL.FUN.inputLimitFun();// 全局设置
+</pre>
+            </div>
 			<!-- 实例 -->
 			<div class="example">
 				<h2>RADIO</h2>
@@ -352,22 +283,48 @@
 			<div class="example">
 				<h2>SELECT</h2>
 				<h3>DEMO</h3>
-				<select>
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-				</select>	
+                <div data-type="radio" class="zcSelect">
+                    <label class="selectLabel defaultColor">请选择银行</label><span class="selectIcon"><i class="arrow"></i></span>
+                    <ul class="selectLst" style="display: none;">
+                        <li selectid="ICBC">中国工商银行</li>
+                        <li selectid="CCB">中国建设银行</li>
+                        <li selectid="BOC">中国银行</li>
+                        <li selectid="ABC">中国农业银行</li>
+                        <li selectid="CMBC">中国民生银行</li>
+                        <li selectid="CMB">招商银行</li>
+                        <li selectid="CITIC">中信银行</li>
+                        <li selectid="BCM">交通银行</li>
+                        <li selectid="CIB">兴业银行</li>
+                        <li selectid="SPDB">浦发银行</li>
+                    </ul>
+                    <input id="bank" class="inputSelect" name="" placeholder="" type="text" value="">
+                </div>	
 			</div>
 			<!-- 源码 -->
 			<div class="sourceCode">
 				<pre>
 <!--下拉列表 -->
-<select>
-	<option>1</option>
-	<option>2</option>
-	<option>3</option>
-</select>
-				</pre>
+<div data-type="radio" class="zcSelect">
+    <label class="selectLabel defaultColor">请选择银行</label>
+    <span class="selectIcon"><i class="arrow"></i></span>
+    <ul class="selectLst" style="display: none;">
+        <li selectid="ICBC">中国工商银行</li>
+        <li selectid="CCB">中国建设银行</li>
+        <li selectid="BOC">中国银行</li>
+        <li selectid="ABC">中国农业银行</li>
+        <li selectid="CMBC">中国民生银行</li>
+        <li selectid="CMB">招商银行</li>
+        <li selectid="CITIC">中信银行</li>
+        <li selectid="BCM">交通银行</li>
+        <li selectid="CIB">兴业银行</li>
+        <li selectid="SPDB">浦发银行</li>
+    </ul>
+    <input class="inputSelect" name="" placeholder="" type="text" value="">
+</div>
+
+<!-- js 代码 -->
+ZC_GLOBAL.FUN.zcSelect();// 全局初始化
+</pre>
 			</div>
 			<!-- 实例 -->
 			<div class="example">
@@ -399,8 +356,54 @@
         <i class="msg msgError"></i>
     </span>
     <span class="zcTips">4位号码<span class="arrow"><b>◆</b><i>◆</i></span></span>
-</div></pre>
+</div>
+
+<!-- js 代码 -->
+$("body").delegate("#XXX","click",function(){
+    ZC_GLOBAL.FUN.getVeriCode.get({url:"请求地址",$target:$(this)});
+});
+<!-- 清除倒计时 -->
+ZC_GLOBAL.FUN.getVeriCode.clear($("#XXX"));
+</pre>
 			</div>
+            <!-- 实例 -->
+            <div class="example">
+                <h2>年-月时间</h2>
+                <p>描述：</p>
+                <p class="describe">
+                    只支持年月选择的时间控件
+                </p>
+                <h3>DEMO</h3>
+                <input class="zcInput" id="timeStart2" type="text" value="2000-02" data-y="2000" data-m="02" data-maxy="2015" data-maxm="05" >
+                -
+                <input class="zcInput" id="timeEnd2" type="text" value="2015-05" data-y="2015" data-m="05" data-miny="2000" data-minm="02"> 
+            </div>
+            <!-- 源码 -->
+            <div class="sourceCode">
+                <pre>
+<!-- 开始时间 -->
+<!-- data-y(当前年)，data-m(当前月)，data-maxy(最大年)，data-maxm(最大月) -->
+<input class="zcInput" id="timeStart2" type="text" value="2000-02" data-y="2000" data-m="02" data-maxy="2015" data-maxm="05" >
+<!-- 结束时间 -->
+<!-- data-miny(最小年)，data-minm(最小月) -->
+<input class="zcInput" id="timeEnd2" type="text" value="2015-05" data-y="2015" data-m="05" data-miny="2000" data-minm="02"> 
+
+<!-- js 代码 -->
+ZC_GLOBAL.FUN.zcDateSelect.show({
+    target:"#timeStart",
+    onClose:function(param){
+        // 关闭 设置下限日期
+        ZC_GLOBAL.FUN.zcDateSelect.option({target:"#timeEnd",minY:param.dataY,minM:param.dataM});
+    }
+});
+ZC_GLOBAL.FUN.zcDateSelect.show({
+    target:"#timeEnd",
+    onClose:function(param){
+        // 关闭 设置上限日期
+        ZC_GLOBAL.FUN.zcDateSelect.option({target:"#timeStart",maxY:param.dataY,maxM:param.dataM});
+    }
+});</pre>
+            </div>
 		</div>
 		
 	</div>

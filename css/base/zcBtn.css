@@ -107,6 +107,22 @@
 .btnGreen:hover .text{
     color:#fff;
 }
+/* 浅绿色 : #25bcc6 */
+.btnLightGreen{
+    background: #25bcc6;
+    border-color:#25bcc6;
+    color:#fff;
+}
+.btnLightGreen .text{
+    color:#fff;
+}
+.btnLightGreen:hover{
+    color:#fff;
+    background:#25bcc6;
+}
+.btnLightGreen:hover .text{
+    color:#fff;
+}
 /* disabled : 禁用 */
 .zcBtn.disabled,
 .zcBtn.disabled .text,

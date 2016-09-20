@@ -25,8 +25,15 @@
 				<h3>DEMO</h3>
 				<div class="zcBubbleTip disabled" style="display:inline-block;position:static;margin:0px;">
 		         	<div class="cont">
-		          		<i class="icon fa-paperclip"></i>
-		            	<span class="text">提示信息</span>
+		          		<i class="icon icon-ok"></i>
+		            	<span class="text">正确提示信息</span>
+			        </div>
+				</div>
+				
+				<div class="zcBubbleTip disabled" style="display:inline-block;position:static;margin:0px;">
+		         	<div class="cont">
+		          		<i class="icon icon-error"></i>
+		            	<span class="text">错误提示信息</span>
 			        </div>
 				</div>
 				<br />
@@ -35,17 +42,9 @@
 			<!-- 源码 -->
 			<div class="sourceCode">
 				<pre id="demo">
-<div class="zcBubbleTip">
-    <div class="cont">
-        <i class="icon fa-paperclip"></i>
-        <span class="text">提示信息</span>
-    </div>
-</div>
-
-<!-- 点击查看 -->
-$("body").delegate("#zcDemo3","click",function(){
-    ZC_GLOBAL.FUN.zcBubbleTip.show({icon:"fa-paperclip",msg:"冒泡提示信息",times:1000});
-});</pre>
+<!-- JS 代码 -->
+ZC_GLOBAL.FUN.zcBubbleTip.show({icon:"icon-ok",msg:"正确提示信息",times:1000});
+ZC_GLOBAL.FUN.zcBubbleTip.show({icon:"icon-error",msg:"错误提示信息",times:1000});</pre>
 			</div>
 		</div>
 	</div>

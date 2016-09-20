@@ -14,10 +14,7 @@
 .uploadWrap .imgs .loading .ing{display: inline-block;position: absolute;left: 50%;top: 50%;margin: -17px 0 0 -7px;}
 .uploadWrap .uploadBtn{position: absolute;left: 2px;top: 2px;width: 52px;height: 52px;z-index: 1;display: none;}
 .uploadWrap .filepicker{width: 52px;height: 52px;cursor: pointer;
-    filter:alpha(opacity=0);
-    -moz-opacity:0;
-    -khtml-opacity: 0;
-    opacity: 0;
+    display: none;
 }
 .uploadWrap .addBtn{float: left;width: 58px;height: 58px;background: #fff;border: 1px solid #e0e0e0;position: relative;cursor: pointer;}
 .uploadWrap .addBtn .line1{width: 22px;height: 2px;background: #aaa;position: absolute;top: 28px;left: 18px;}

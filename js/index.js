@@ -74,8 +74,46 @@ $(function(){
 		});
 	});
 
-	// 支付密码
-	ZC_GLOBAL.FUN.zcPayPassword();
+    //支付密码设置
+    ZC_GLOBAL.FUN.zcPayPassword({
+        targetStr: "#paypassword",
+        callbackFocus: function () {},
+        callbackBlur: function () {},
+        callbackDel: function () {},
+        callbackEnd: function () {}        
+    });
+    // zcSelect
+    ZC_GLOBAL.FUN.zcSelect();
+    // 文本框字数限制
+    ZC_GLOBAL.FUN.inputLimitFun();
+    // 在职时间
+    setTimeout(function(){
+	    ZC_GLOBAL.FUN.zcDateSelect.show({
+	        target:"#timeStart",
+	        onClose:function(param){
+	            ZC_GLOBAL.FUN.zcDateSelect.option({target:"#timeEnd",minY:param.dataY,minM:param.dataM});
+	        }
+	    });
+	    ZC_GLOBAL.FUN.zcDateSelect.show({
+	        target:"#timeEnd",
+	        onClose:function(param){
+	            ZC_GLOBAL.FUN.zcDateSelect.option({target:"#timeStart",maxY:param.dataY,maxM:param.dataM});
+	        }
+	    });
+	    ZC_GLOBAL.FUN.zcDateSelect.show({
+	        target:"#timeStart2",
+	        onClose:function(param){
+	            ZC_GLOBAL.FUN.zcDateSelect.option({target:"#timeEnd2",minY:param.dataY,minM:param.dataM});
+	        }
+	    });
+	    ZC_GLOBAL.FUN.zcDateSelect.show({
+	        target:"#timeEnd2",
+	        onClose:function(param){
+	            ZC_GLOBAL.FUN.zcDateSelect.option({target:"#timeStart2",maxY:param.dataY,maxM:param.dataM});
+	        }
+	    });
+    },2000);
+
 });
 function html(s) {
 	return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
