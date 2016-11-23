@@ -12,9 +12,9 @@ $(function(){
 					$pre.eq(i).addClass("prettyprint linenums");
 					$pre.eq(i).empty().html(innerHtml);
 				};
-				if(index==(len-1)){
+				//if(index==(len-1)){
 					prettyPrint();
-				};
+				//};
 			});
 		});	
 	});
@@ -63,7 +63,7 @@ $(function(){
 	});
 
 	$("body").delegate("#zcDemo3","click",function(){
-		ZC_GLOBAL.FUN.zcBubbleTip.show({icon:"fa-paperclip",msg:"冒泡提示信息",times:1000});
+		ZC_GLOBAL.FUN.zcBubbleTip.show({icon:"<i class='icon icon-tick'>&#xe63b;</i>",msg:"冒泡提示信息",times:1000});
 	});
 
 	$("body").delegate("#demo4","click",function(){

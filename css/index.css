@@ -6,7 +6,7 @@
 	background: url('../images/header.png') no-repeat;
 	background-size: 100% 100%;
 	width: 100%;
-	height: 259px;
+	/*height: 259px;*/
 	margin-bottom: 60px;
 
 }
@@ -97,6 +97,7 @@
 	color: #333333;
 	font-weight: normal;
 	height: 50px;
+	font-style: italic;
 
 }
 .content_left .title p{
@@ -134,7 +135,9 @@
 	margin: 10px 0;
 	border:1px dashed #999;
 }
-
+.support{
+	font-style: italic;
+}
 
 .content_right{
 	width: 230px;

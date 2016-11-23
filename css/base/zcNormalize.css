@@ -93,11 +93,12 @@ input::-ms-clear {
 }
 input:focus,
 textarea:focus {
-    border-color: #bbb!important;
+    border-color: #00a1f1!important;
+    box-shadow: 0px 0px 3px #56bef3;
 }
 input.error,
 textarea.error{
-    color: #ccc;
+    color: #333;
 }
 textarea{
     resize: none;

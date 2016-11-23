@@ -13,5 +13,5 @@
 .zcImgPreview .imgWrap{overflow: auto;vertical-align: middle;text-align: center;}
 .zcImgPreview .btn.prevStop, .picLibrary .btn.nextStop{display: none!important;}
 .zcImgPreview .imgWrap .imgcover{width: 100%;height: 100%;position: absolute;z-index: 1;left: 0px;top: 0px;}
-.zcImgPreview .imgWrap .drag{display: inline-block;line-height: 0px;position: relative;background: #000;vertical-align: middle;cursor: url(../images/cursor_mouse1.gif),auto;}
-.zcImgPreview .imgWrap .drag.cursorMouseKeydown{cursor: url(../images/cursor_mouse2.gif),auto;}
+.zcImgPreview .imgWrap .drag{display: inline-block;line-height: 0px;position: relative;background: #000;vertical-align: middle;cursor: url(../../images/cursor_mouse1.gif),auto;}
+.zcImgPreview .imgWrap .drag.cursorMouseKeydown{cursor: url(../../images/cursor_mouse2.gif),auto;}

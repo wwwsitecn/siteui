@@ -4,7 +4,11 @@
     line-height: 36px;
     padding:0 10px;
     border: 1px solid #ccc;
-    color: #aaa;
+    color: #333;
+    background: #fff;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius:3px;
 }
 /* zcTextarea */
 .zcTextarea{
@@ -12,7 +16,11 @@
     line-height: 16px;
     padding:10px;
     border: 1px solid #ccc;
-    color: #aaa;
+    color: #333;
+    background: #fff;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius:3px;
 }
 .zcInput.inputSmall{
     width:128px;
@@ -84,6 +92,9 @@
     font-size:0px;
     position: relative;
     overflow: hidden;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius:3px;
 }
 .zcPayPassword.error{
     border-color:#f00;
@@ -172,36 +183,7 @@
     margin-left:-4px;
     z-index: 1;
 }*/
-/* zcPassword6s :  */
-.zcPassword6s{
-    width: 229px!important;
-    display:inline-block!important;
-    height: auto!important;
-    padding: 0px!important;
-    border: none;
-    overflow: hidden;
-}
-.zcPassword6s .pw{
-    float: left;
-    width: 37px;
-    height:36px;
-    line-height: 36px;
-    font-size: 18px;
-    text-align: center;
-    border: 1px solid #e0e0e0;
-    position: relative;
-    margin-left: -1px;
-}
-.zcPassword6s .pw01{
-    margin-left: 0px;
-}
-.zcPassword6s .pw:focus{
-    position: relative;
-    z-index: 1;
-}
-.zcPassword6s.error{
-    border-color:#ff7373 !important;
-}
+
 /* select : 模拟select */
 .zcSelect{
     min-width: 100px;
@@ -211,6 +193,9 @@
     background-color: #fff;
     border:1px solid #ccc;
     vertical-align: middle;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius:3px;
 }
 .zcSelect .selectLabel{
     width: 100%;

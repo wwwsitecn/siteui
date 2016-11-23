@@ -15,6 +15,8 @@
 }
 .zcBtn .icon{
     margin-right: 8px;
+    font-size: 14px;
+    line-height: 14px;
 }
 .zcBtn:hover{
     background: #00a1f1;
@@ -91,6 +93,22 @@
 .btnOrange:hover .text{
     color:#fff;
 }
+/* 橙色 : #ee5a28 */
+.btnee5a28{
+    background: #ee5a28;
+    border-color:#ee5a28;
+    color:#fff;
+}
+.btnee5a28 .text{
+    color:#fff;
+}
+.btnee5a28:hover{
+    color:#fff;
+    background:#ee5a28;
+}
+.btnee5a28:hover .text{
+    color:#fff;
+}
 /* 绿色 : #89c33e */
 .btnGreen{
     background: #89c33e;
@@ -127,8 +145,8 @@
 .zcBtn.disabled,
 .zcBtn.disabled .text,
 .zcBtn.disabled .icon{
-    background: #aaa!important;
-    border-color: #aaa!important;
+    background: #ccc!important;
+    border-color: #ccc!important;
     color:#fff!important;
     cursor: not-allowed!important;
 }
@@ -172,3 +190,8 @@
 .zcBtn.btnBg .text{
     font-size: 16px;
 }
+.zcBtn.btnBg .icon{
+    line-height: 16px;
+    font-size: 16px;
+}
+

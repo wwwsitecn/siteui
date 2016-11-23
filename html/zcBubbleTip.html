@@ -13,6 +13,7 @@
 		<!-- 标题和解释 -->
 		<div class="title">
 			<h1>冒泡提示信息</h1>
+			<p class="support">CSS引用：[ <a href="css/base/zcBubbleTip.css" target="_blank">css/base/zcBubbleTip.css</a> ]</p>
 		</div>
 		<div class="box">
 			<!-- 实例 -->
@@ -25,14 +26,14 @@
 				<h3>DEMO</h3>
 				<div class="zcBubbleTip disabled" style="display:inline-block;position:static;margin:0px;">
 		         	<div class="cont">
-		          		<i class="icon icon-ok"></i>
+		          		<i class='icon icon-tick'>&#xe63b;</i>
 		            	<span class="text">正确提示信息</span>
 			        </div>
 				</div>
 				
 				<div class="zcBubbleTip disabled" style="display:inline-block;position:static;margin:0px;">
 		         	<div class="cont">
-		          		<i class="icon icon-error"></i>
+		          		<i class='icon icon-cross'>&#xe620;</i>
 		            	<span class="text">错误提示信息</span>
 			        </div>
 				</div>
@@ -43,8 +44,8 @@
 			<div class="sourceCode">
 				<pre id="demo">
 <!-- JS 代码 -->
-ZC_GLOBAL.FUN.zcBubbleTip.show({icon:"icon-ok",msg:"正确提示信息",times:1000});
-ZC_GLOBAL.FUN.zcBubbleTip.show({icon:"icon-error",msg:"错误提示信息",times:1000});</pre>
+ZC_GLOBAL.FUN.zcBubbleTip.show({icon:'<i class="icon icon-tick">&#xe63b;</i>',msg:"正确提示信息",times:1000});
+ZC_GLOBAL.FUN.zcBubbleTip.show({icon:'<i class="icon icon-cross">&#xe620;</i>',msg:"错误提示信息",times:1000});</pre>
 			</div>
 		</div>
 	</div>
